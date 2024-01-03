@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MockTableViewCell" id="C1L-hB-g9u" customClass="MockTableViewCell" customModule="InStreamSample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C1L-hB-g9u" id="Ffs-Bc-wYP">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHl-4O-kWi">
+                        <rect key="frame" x="10" y="10" width="373" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="LHl-4O-kWi" secondAttribute="trailing" constant="10" id="5dC-uf-p4g"/>
+                    <constraint firstAttribute="bottom" secondItem="LHl-4O-kWi" secondAttribute="bottom" constant="10" id="7rc-PC-X13"/>
+                    <constraint firstItem="LHl-4O-kWi" firstAttribute="top" secondItem="Ffs-Bc-wYP" secondAttribute="top" constant="10" id="ABj-8y-6W1"/>
+                    <constraint firstItem="LHl-4O-kWi" firstAttribute="leading" secondItem="Ffs-Bc-wYP" secondAttribute="leading" constant="10" id="Q8q-8e-cHX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="mockTextLabel" destination="LHl-4O-kWi" id="tGu-mh-IgP"/>
+            </connections>
+            <point key="canvasLocation" x="211" y="-51"/>
+        </tableViewCell>
+    </objects>
+</document>

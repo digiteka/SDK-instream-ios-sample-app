@@ -31,10 +31,13 @@
                             <constraint firstItem="eho-iR-0WV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nv7-cK-85g"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="eho-iR-0WV" id="Oc1-85-gDL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134" y="4"/>
+            <point key="canvasLocation" x="133.58778625954199" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>

@@ -12,6 +12,7 @@ class ViewController: UIViewController {
         didSet {
             tableView.dataSource = self
             tableView.delegate = self
+            tableView.register(UINib(nibName: "MockTableViewCell", bundle: nil), forCellReuseIdentifier: "MockTableViewCell")
         }
     }
 
@@ -24,10 +25,15 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MockTableViewCell", for: indexPath)
+        if let _cell = cell  as? MockTableViewCell {
+            _cell.displayText()
+            return _cell
+        }
         return UITableViewCell()
     }
 }
