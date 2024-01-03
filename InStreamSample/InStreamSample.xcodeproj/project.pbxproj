@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		4CCA7C4F2B456E78008CA04C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CCA7C4D2B456E78008CA04C /* LaunchScreen.storyboard */; };
 		4CCA7C572B457085008CA04C /* MockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA7C562B457085008CA04C /* MockTableViewCell.swift */; };
 		4CCA7C5A2B4574B7008CA04C /* MockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CCA7C592B4574B7008CA04C /* MockTableViewCell.xib */; };
+		4CCA7C5E2B457808008CA04C /* InStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4CCA7C5D2B457808008CA04C /* InStreamSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CCA7C5E2B457808008CA04C /* InStreamSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +99,9 @@
 			dependencies = (
 			);
 			name = InStreamSample;
+			packageProductDependencies = (
+				4CCA7C5D2B457808008CA04C /* InStreamSDK */,
+			);
 			productName = InStreamSample;
 			productReference = 4CCA7C3F2B456E77008CA04C /* InStreamSample.app */;
 			productType = "com.apple.product-type.application";
@@ -125,6 +130,9 @@
 				Base,
 			);
 			mainGroup = 4CCA7C362B456E77008CA04C;
+			packageReferences = (
+				4CCA7C5C2B457808008CA04C /* XCLocalSwiftPackageReference "../../digiteka.instream.ios/InStreamSDK" */,
+			);
 			productRefGroup = 4CCA7C402B456E77008CA04C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -379,6 +387,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		4CCA7C5C2B457808008CA04C /* XCLocalSwiftPackageReference "../../digiteka.instream.ios/InStreamSDK" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../digiteka.instream.ios/InStreamSDK;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4CCA7C5D2B457808008CA04C /* InStreamSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InStreamSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4CCA7C372B456E77008CA04C /* Project object */;
 }
