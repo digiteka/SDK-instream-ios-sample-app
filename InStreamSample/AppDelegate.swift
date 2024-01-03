@@ -6,14 +6,19 @@
 //
 
 import UIKit
+import InStreamSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        do {
+            try InStream.shared.initialize(config: DTKNSConfig(mdtk: "01472001"))
+        } catch {
+            print("Can't init InStream with error \(error.localizedDescription)")
+        }
+        InStream.shared.setLoggerDelegate(self)
+
         return true
     }
 
@@ -34,3 +39,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// MARK: DTKNSLoggerDelegate
+extension AppDelegate: DTKNSLoggerDelegate {
+    func InStreamDebug(message: String) {
+        print("debug " + message)
+    }
+
+    func InStreamInfo(message: String) {
+        print("info " + message)
+    }
+
+    func InStreamWarn(message: String) {
+        print("warn " + message)
+    }
+
+    func InStreamError(message: String, error: Error?) {
+        print("error " + message, error as Any)
+    }
+}

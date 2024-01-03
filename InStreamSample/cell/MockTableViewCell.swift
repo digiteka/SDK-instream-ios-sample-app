@@ -11,7 +11,7 @@ import UIKit
 class MockTableViewCell: UITableViewCell {
     @IBOutlet private weak var mockTextLabel: UILabel!
     
-    func displayText() {
-        mockTextLabel.text = "Ligne 1\nLigne 2\nLigne 3"
+    func displayText(_ text: String) {
+        mockTextLabel.text = text
     }
 }
