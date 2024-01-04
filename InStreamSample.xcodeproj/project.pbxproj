@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C347FEF2B45BACC00CE8299 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C347FEE2B45BACC00CE8299 /* VideoTableViewCell.swift */; };
+		4C347FF32B46ABD900CE8299 /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C347FF22B46ABD900CE8299 /* VideoTableViewCell.xib */; };
+		4C347FF82B46BD4B00CE8299 /* InStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4C347FF72B46BD4B00CE8299 /* InStreamSDK */; };
+		4C347FFC2B46C65700CE8299 /* InStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4C347FFB2B46C65700CE8299 /* InStreamSDK */; };
+		4C3480022B46C87F00CE8299 /* InStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4C3480012B46C87F00CE8299 /* InStreamSDK */; };
+		4C3480072B46CFA300CE8299 /* InStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4C3480062B46CFA300CE8299 /* InStreamSDK */; };
+		4C34800A2B46D0AB00CE8299 /* InStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4C3480092B46D0AB00CE8299 /* InStreamSDK */; };
 		4C8E1A2F2B45AB5F0047A877 /* InStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4C8E1A2E2B45AB5F0047A877 /* InStreamSDK */; };
 		4C8E1A312B45AD360047A877 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8E1A302B45AD360047A877 /* SettingViewController.swift */; };
 		4C8E1A342B45AE6D0047A877 /* DemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C8E1A332B45AE6D0047A877 /* DemoViewController.xib */; };
@@ -24,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C347FEE2B45BACC00CE8299 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
+		4C347FF22B46ABD900CE8299 /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
 		4C8E1A302B45AD360047A877 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		4C8E1A332B45AE6D0047A877 /* DemoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoViewController.xib; sourceTree = "<group>"; };
 		4CCA7C3F2B456E77008CA04C /* InStreamSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InStreamSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,10 +52,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C3480072B46CFA300CE8299 /* InStreamSDK in Frameworks */,
+				4C34800A2B46D0AB00CE8299 /* InStreamSDK in Frameworks */,
 				4C8E1A2F2B45AB5F0047A877 /* InStreamSDK in Frameworks */,
 				4CCA7C7C2B459689008CA04C /* InStreamSDK in Frameworks */,
+				4C347FF82B46BD4B00CE8299 /* InStreamSDK in Frameworks */,
 				4CCA7C7E2B459716008CA04C /* InStreamSDK in Frameworks */,
+				4C347FFC2B46C65700CE8299 /* InStreamSDK in Frameworks */,
 				4CCA7C5E2B457808008CA04C /* InStreamSDK in Frameworks */,
+				4C3480022B46C87F00CE8299 /* InStreamSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +113,8 @@
 			children = (
 				4CCA7C562B457085008CA04C /* MockTableViewCell.swift */,
 				4CCA7C592B4574B7008CA04C /* MockTableViewCell.xib */,
+				4C347FEE2B45BACC00CE8299 /* VideoTableViewCell.swift */,
+				4C347FF22B46ABD900CE8299 /* VideoTableViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -124,6 +140,11 @@
 				4CCA7C7B2B459689008CA04C /* InStreamSDK */,
 				4CCA7C7D2B459716008CA04C /* InStreamSDK */,
 				4C8E1A2E2B45AB5F0047A877 /* InStreamSDK */,
+				4C347FF72B46BD4B00CE8299 /* InStreamSDK */,
+				4C347FFB2B46C65700CE8299 /* InStreamSDK */,
+				4C3480012B46C87F00CE8299 /* InStreamSDK */,
+				4C3480062B46CFA300CE8299 /* InStreamSDK */,
+				4C3480092B46D0AB00CE8299 /* InStreamSDK */,
 			);
 			productName = InStreamSample;
 			productReference = 4CCA7C3F2B456E77008CA04C /* InStreamSample.app */;
@@ -154,7 +175,7 @@
 			);
 			mainGroup = 4CCA7C362B456E77008CA04C;
 			packageReferences = (
-				4C8E1A2D2B45AB5F0047A877 /* XCLocalSwiftPackageReference "../digiteka.instream.ios" */,
+				4C3480082B46D0AB00CE8299 /* XCLocalSwiftPackageReference "../digiteka.instream.ios" */,
 			);
 			productRefGroup = 4CCA7C402B456E77008CA04C /* Products */;
 			projectDirPath = "";
@@ -175,6 +196,7 @@
 				4CCA7C4A2B456E77008CA04C /* Main.storyboard in Resources */,
 				4CCA7C5A2B4574B7008CA04C /* MockTableViewCell.xib in Resources */,
 				4C8E1A342B45AE6D0047A877 /* DemoViewController.xib in Resources */,
+				4C347FF32B46ABD900CE8299 /* VideoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +212,7 @@
 				4CCA7C432B456E77008CA04C /* AppDelegate.swift in Sources */,
 				4CCA7C452B456E77008CA04C /* SceneDelegate.swift in Sources */,
 				4CCA7C572B457085008CA04C /* MockTableViewCell.swift in Sources */,
+				4C347FEF2B45BACC00CE8299 /* VideoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,13 +437,33 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		4C8E1A2D2B45AB5F0047A877 /* XCLocalSwiftPackageReference "../digiteka.instream.ios" */ = {
+		4C3480082B46D0AB00CE8299 /* XCLocalSwiftPackageReference "../digiteka.instream.ios" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../digiteka.instream.ios;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4C347FF72B46BD4B00CE8299 /* InStreamSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InStreamSDK;
+		};
+		4C347FFB2B46C65700CE8299 /* InStreamSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InStreamSDK;
+		};
+		4C3480012B46C87F00CE8299 /* InStreamSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InStreamSDK;
+		};
+		4C3480062B46CFA300CE8299 /* InStreamSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InStreamSDK;
+		};
+		4C3480092B46D0AB00CE8299 /* InStreamSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InStreamSDK;
+		};
 		4C8E1A2E2B45AB5F0047A877 /* InStreamSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = InStreamSDK;

@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         do {
-            try InStream.shared.initialize(config: DTKNSConfig(mdtk: "01472001"))
+            try InStream.shared.initialize(config: DTKISConfig(mdtk: "01472001"))
         } catch {
             print("Can't init InStream with error \(error.localizedDescription)")
         }
@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 // MARK: DTKNSLoggerDelegate
-extension AppDelegate: DTKNSLoggerDelegate {
+extension AppDelegate: DTKISLoggerDelegate {
     func InStreamDebug(message: String) {
         print("debug " + message)
     }

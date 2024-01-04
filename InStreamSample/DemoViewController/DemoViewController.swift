@@ -13,6 +13,7 @@ class DemoViewController: UIViewController {
             tableView.dataSource = self
             tableView.delegate = self
             tableView.register(UINib(nibName: "MockTableViewCell", bundle: nil), forCellReuseIdentifier: "MockTableViewCell")
+            tableView.register(UINib(nibName: "VideoTableViewCell", bundle: nil), forCellReuseIdentifier: "VideoTableViewCell")
         }
     }
     private var mockVideoView: UIView?
@@ -38,6 +39,10 @@ extension DemoViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 15 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "MockTableViewCell", for: indexPath)
         if let _cell = cell  as? MockTableViewCell {
             _cell.displayText("Ligne \(indexPath.row), 1\nLigne \(indexPath.row), 2\nLigne \(indexPath.row), 3\nLigne \(indexPath.row), 4")
@@ -52,8 +57,3 @@ extension DemoViewController: UITableViewDataSource {
 extension DemoViewController: UITableViewDelegate {}
 
 
-// MARK: UIScrollViewDelegate
-extension DemoViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    }
-}
