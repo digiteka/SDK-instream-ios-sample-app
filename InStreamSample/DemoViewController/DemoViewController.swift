@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import InStreamSDK
 
 class DemoViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView! {
@@ -16,8 +17,10 @@ class DemoViewController: UIViewController {
             tableView.register(UINib(nibName: "VideoTableViewCell", bundle: nil), forCellReuseIdentifier: "VideoTableViewCell")
         }
     }
-    private var mockVideoView: UIView?
+    @IBOutlet private weak var mockVideoContainerView: UIView!
     
+    private var videoView: VideoView?
+    private var videoCell: VideoTableViewCell?
     private var shouldStickVideo: Bool!
     
     convenience init(_ shouldStickVideo: Bool = true) {
@@ -27,6 +30,7 @@ class DemoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        mockVideoContainerView?.isHidden = true
     }
 
 }
@@ -39,8 +43,9 @@ extension DemoViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 15 {
+        if indexPath.row == 10 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
+            videoCell = cell
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "MockTableViewCell", for: indexPath)
@@ -57,3 +62,27 @@ extension DemoViewController: UITableViewDataSource {
 extension DemoViewController: UITableViewDelegate {}
 
 
+// MARK: UIScrollViewDelegate
+extension DemoViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let videoCell = videoCell {
+            if videoView == nil && !tableView.visibleCells.contains(videoCell) {
+                guard shouldStickVideo else {
+                    return
+                }
+                
+                videoCell.videoView?.setIn(containerView: mockVideoContainerView)
+                
+                videoView = videoCell.videoView
+                mockVideoContainerView.isHidden = false
+                tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: mockVideoContainerView.frame.height + 12 * 2, right: 0)
+            } else if let videoView = videoView, tableView.visibleCells.contains(videoCell) {
+                videoCell.setVideoView(videoView)
+                
+                self.videoCell = nil
+                mockVideoContainerView?.isHidden = true
+                tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            }
+        }
+    }
+}
