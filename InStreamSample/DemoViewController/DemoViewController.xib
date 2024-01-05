@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DemoViewController" customModule="InStreamSample" customModuleProvider="target">
             <connections>
-                <outlet property="mockVideoContainerView" destination="2nS-7W-pha" id="scc-kc-LCc"/>
                 <outlet property="tableView" destination="4XH-ol-Pd2" id="nVS-N3-aks"/>
                 <outlet property="view" destination="6Qh-U6-SC7" id="dAX-Yz-LO1"/>
             </connections>
@@ -25,14 +24,6 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2nS-7W-pha">
-                    <rect key="frame" x="123" y="640" width="240" height="128"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="240" id="Aya-yJ-Bbn"/>
-                        <constraint firstAttribute="height" constant="128" id="Nid-bg-qc8"/>
-                    </constraints>
-                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="n3l-bZ-SEE"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -40,9 +31,7 @@
                 <constraint firstItem="n3l-bZ-SEE" firstAttribute="trailing" secondItem="4XH-ol-Pd2" secondAttribute="trailing" id="LVP-Lf-8bU"/>
                 <constraint firstItem="4XH-ol-Pd2" firstAttribute="leading" secondItem="n3l-bZ-SEE" secondAttribute="leading" id="MiF-yk-hPX"/>
                 <constraint firstItem="4XH-ol-Pd2" firstAttribute="top" secondItem="n3l-bZ-SEE" secondAttribute="top" id="NqW-A2-Gyl"/>
-                <constraint firstItem="n3l-bZ-SEE" firstAttribute="trailing" secondItem="2nS-7W-pha" secondAttribute="trailing" constant="30" id="Zuo-co-qye"/>
                 <constraint firstItem="n3l-bZ-SEE" firstAttribute="bottom" secondItem="4XH-ol-Pd2" secondAttribute="bottom" id="egF-FQ-zgb"/>
-                <constraint firstItem="n3l-bZ-SEE" firstAttribute="bottom" secondItem="2nS-7W-pha" secondAttribute="bottom" constant="50" id="suL-4u-qqh"/>
             </constraints>
             <point key="canvasLocation" x="144" y="-599"/>
         </view>

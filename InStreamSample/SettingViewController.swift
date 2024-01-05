@@ -11,10 +11,9 @@ import UIKit
 class SettingViewController: UIViewController {
     @IBOutlet private weak var generateDemoViewController: UIButton!
     
-    private var shouldStickVideo: Bool = true
     
     @IBAction func openDemoViewController(_ sender: UIButton) {
-        let vc = DemoViewController(shouldStickVideo)
+        let vc = DemoViewController()
          self.present(vc, animated: true)
     }
 }
