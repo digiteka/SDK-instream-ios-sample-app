@@ -19,12 +19,11 @@ class DemoViewController: UIViewController {
     }
     
     private var visiblePlayerView: VisiblePlayerView?
-    private var videoView: VideoView?
     private var videoCell: VideoTableViewCell?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        visiblePlayerView = InStream.shared.getVisiblePlayerView(in: self.view, delegate: self, playerPosition: .TOP_START, widthPercent: 0.5, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0)
+        visiblePlayerView = InStream.shared.getVisiblePlayerView(in: self.view, scrollView: tableView, playerPosition: .TOP_START, widthPercent: 0.5, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0)
         visiblePlayerView?.isHidden = true
     }
 
@@ -60,32 +59,8 @@ extension DemoViewController: UITableViewDelegate {}
 // MARK: UIScrollViewDelegate
 extension DemoViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let videoCell = videoCell {
-            if videoView == nil && !tableView.visibleCells.contains(videoCell) {
-                if let visiblePlayerView = visiblePlayerView, !visiblePlayerView.hasBeenClosed {
-                    videoCell.videoView?.setInVisiblePlayer(containerView: visiblePlayerView)
-                }
-                videoView = videoCell.videoView
-                visiblePlayerView?.isHidden = false
-                tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100 + 12 * 2, right: 0)
-            } else if let videoView = videoView, !videoView.wasInCell, tableView.visibleCells.contains(videoCell) {
-                videoCell.setVideoView(videoView)
-                self.videoView = nil
-                visiblePlayerView?.isHidden = true
-                tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            }
-        }
-    }
-}
-
-// MARK: VisiblePlayerDelegate
-extension DemoViewController: VisiblePlayerDelegate {
-    func didCloseVisiblePlayer() {
-        if let videoView = videoView, let videoCell = videoCell {
-            videoCell.didcloseVisiblePlayer(videoView)
-            self.videoView = nil
-            visiblePlayerView?.isHidden = true
-            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        if let videoCell = videoCell, let videoView = videoCell.videoView {
+            visiblePlayerView?.viewDidScroll(videoView: videoView)
         }
     }
 }
