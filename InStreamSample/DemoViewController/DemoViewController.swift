@@ -20,11 +20,30 @@ class DemoViewController: UIViewController {
     
     private var visiblePlayerView: VisiblePlayerView?
     private var videoCell: VideoTableViewCell?
+    private var autoplay: Autoplay!
+    private var visiblePlayer: Bool!
+    private var visiblePlayerPosition: VisiblePlayerPosition!
+    
+    convenience init(autoplay: String, visiblePlayer: Bool, visiblePlayerPosition: VisiblePlayerPosition) {
+        self.init()
+        switch autoplay {
+        case "1":
+            self.autoplay = .auto
+        case "2":
+            self.autoplay = .scroll
+        default:
+            self.autoplay = .user
+        }
+        self.visiblePlayer = visiblePlayer
+        self.visiblePlayerPosition = visiblePlayerPosition
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        visiblePlayerView = InStream.shared.getVisiblePlayerView(in: self.view, scrollView: tableView, playerPosition: .TOP_START, widthPercent: 0.5, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0)
-        visiblePlayerView?.isHidden = true
+        if visiblePlayer {
+            visiblePlayerView = InStream.shared.getVisiblePlayerView(in: self.view, scrollView: tableView, playerPosition: visiblePlayerPosition, widthPercent: 0.5, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0)
+            visiblePlayerView?.isHidden = true
+        }
     }
 
 }
@@ -39,6 +58,7 @@ extension DemoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 10 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
+            cell.setupCell(autoplay: autoplay)
             videoCell = cell
             return cell
         }
