@@ -31,4 +31,9 @@ class VideoTableViewCell: UITableViewCell {
         self.videoView = videoView
         self.videoView?.setIn(containerView: videoViewContainer)
     }
+    
+    func didcloseVisiblePlayer(_ videoView: VideoView) {
+        self.videoView = videoView
+        self.videoView?.didCloseVisiblePlayer(containerView: videoViewContainer)
+    }
 }
