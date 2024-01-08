@@ -60,7 +60,7 @@ extension DemoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 10 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
-            cell.setupCell(autoplay: autoplay)
+            cell.setUp(autoplay: autoplay)
             videoCell = cell
             return cell
         }
