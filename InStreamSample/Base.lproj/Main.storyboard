@@ -76,17 +76,38 @@
                                     <constraint firstAttribute="height" constant="100" id="bTk-an-aif"/>
                                 </constraints>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wR-Gk-C0h">
+                                <rect key="frame" x="20.000000000000004" y="504.66666666666674" width="41.333333333333343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zZE-3o-5Dr">
+                                <rect key="frame" x="71.333333333333329" y="499.66666666666674" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHv-II-Icm">
+                                <rect key="frame" x="130.33333333333334" y="504.66666666666674" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QId-19-Aom"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6wR-Gk-C0h" firstAttribute="leading" secondItem="QId-19-Aom" secondAttribute="leading" constant="20" id="0PI-mN-mXf"/>
                             <constraint firstItem="QId-19-Aom" firstAttribute="trailing" secondItem="pac-lA-yV3" secondAttribute="trailing" constant="20" id="9qa-i4-xHi"/>
                             <constraint firstItem="6Q1-c0-obA" firstAttribute="leading" secondItem="qpr-gZ-4YB" secondAttribute="trailing" constant="30" id="DAD-XQ-ZwG"/>
+                            <constraint firstItem="dHv-II-Icm" firstAttribute="leading" secondItem="zZE-3o-5Dr" secondAttribute="trailing" constant="10" id="EdE-aD-jSV"/>
                             <constraint firstItem="Y54-WZ-Ehl" firstAttribute="leading" secondItem="QId-19-Aom" secondAttribute="leading" constant="20" id="S7X-a5-iWS"/>
+                            <constraint firstItem="zZE-3o-5Dr" firstAttribute="leading" secondItem="6wR-Gk-C0h" secondAttribute="trailing" constant="10" id="T4g-Je-8V7"/>
                             <constraint firstItem="QId-19-Aom" firstAttribute="trailing" secondItem="BWP-ql-775" secondAttribute="trailing" constant="20" id="UX4-Dj-uqr"/>
                             <constraint firstItem="qpr-gZ-4YB" firstAttribute="leading" secondItem="QId-19-Aom" secondAttribute="leading" constant="20" id="XRF-pg-1SH"/>
+                            <constraint firstItem="6wR-Gk-C0h" firstAttribute="top" secondItem="Y54-WZ-Ehl" secondAttribute="bottom" constant="80" id="Xtc-uV-bCZ"/>
                             <constraint firstItem="QId-19-Aom" firstAttribute="trailing" secondItem="Y54-WZ-Ehl" secondAttribute="trailing" constant="20" id="ZAu-da-OEk"/>
+                            <constraint firstItem="6wR-Gk-C0h" firstAttribute="centerY" secondItem="zZE-3o-5Dr" secondAttribute="centerY" id="ahc-Io-5qd"/>
                             <constraint firstItem="BWP-ql-775" firstAttribute="top" secondItem="qpr-gZ-4YB" secondAttribute="bottom" constant="80" id="bdq-D2-SPO"/>
+                            <constraint firstItem="QId-19-Aom" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dHv-II-Icm" secondAttribute="trailing" constant="20" id="cCo-c6-MZX"/>
                             <constraint firstItem="QId-19-Aom" firstAttribute="bottom" secondItem="j20-30-Apu" secondAttribute="bottom" constant="100" id="d6b-0P-4xZ"/>
                             <constraint firstItem="kHc-Uk-j89" firstAttribute="top" secondItem="QId-19-Aom" secondAttribute="top" id="dZt-8d-7Dg"/>
                             <constraint firstItem="BWP-ql-775" firstAttribute="leading" secondItem="QId-19-Aom" secondAttribute="leading" constant="20" id="j9U-tF-m54"/>
@@ -95,6 +116,7 @@
                             <constraint firstItem="Y54-WZ-Ehl" firstAttribute="top" secondItem="BWP-ql-775" secondAttribute="bottom" id="lDR-tn-YAn"/>
                             <constraint firstItem="j20-30-Apu" firstAttribute="centerX" secondItem="4YB-T1-xVd" secondAttribute="centerX" id="nUR-nV-F6d"/>
                             <constraint firstItem="kHc-Uk-j89" firstAttribute="leading" secondItem="QId-19-Aom" secondAttribute="leading" constant="20" id="rg8-Ll-euj"/>
+                            <constraint firstItem="zZE-3o-5Dr" firstAttribute="centerY" secondItem="dHv-II-Icm" secondAttribute="centerY" id="syg-rz-O48"/>
                             <constraint firstItem="qpr-gZ-4YB" firstAttribute="top" secondItem="kHc-Uk-j89" secondAttribute="bottom" constant="80" id="vA0-Wo-hHw"/>
                             <constraint firstItem="pac-lA-yV3" firstAttribute="leading" secondItem="kHc-Uk-j89" secondAttribute="trailing" constant="10" id="yHN-Bn-MPL"/>
                         </constraints>
@@ -104,10 +126,13 @@
                         <outlet property="autoplayLabel" destination="kHc-Uk-j89" id="aqx-Gb-OtY"/>
                         <outlet property="autoplayText" destination="pac-lA-yV3" id="iDT-9O-5fV"/>
                         <outlet property="generateDemoViewController" destination="j20-30-Apu" id="ZA8-8i-Dog"/>
+                        <outlet property="percent50Label" destination="dHv-II-Icm" id="kqI-84-DME"/>
                         <outlet property="positionPicker" destination="Y54-WZ-Ehl" id="a02-JN-9RH"/>
                         <outlet property="visiblePlayerLabel" destination="qpr-gZ-4YB" id="x4g-cw-jBX"/>
                         <outlet property="visiblePlayerPositionLabel" destination="BWP-ql-775" id="fPy-xc-Ak9"/>
                         <outlet property="visiblePlayerSwitch" destination="6Q1-c0-obA" id="hjG-pQ-d1S"/>
+                        <outlet property="widthLabel" destination="6wR-Gk-C0h" id="T7G-mQ-882"/>
+                        <outlet property="widthSwitch" destination="zZE-3o-5Dr" id="DBe-lv-Kf3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kM0-IN-9pp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -21,6 +21,9 @@ class SettingViewController: UIViewController {
             positionPicker.delegate = self
         }
     }
+    @IBOutlet private weak var widthLabel: UILabel!
+    @IBOutlet private weak var widthSwitch: UISwitch!
+    @IBOutlet private weak var percent50Label: UILabel!
     @IBOutlet private weak var generateDemoViewController: UIButton!
     
     private var positions = ["top_start", "top_end", "bottom_start", "bottom_end"]
@@ -31,12 +34,14 @@ class SettingViewController: UIViewController {
         autoplayLabel.text = "autoplay (default 0) :\n- 0 : click utilisateur\n- 1 : automatique\n- 2 : scroll à 50%"
         visiblePlayerLabel.text = "visible player ?"
         visiblePlayerPositionLabel.text = "position du visible player"
+        widthLabel.text = "largeur du visible player :   33%"
+        percent50Label.text = "50%"
     }
     
     
     @IBAction func openDemoViewController(_ sender: UIButton) {
         
-        let vc = DemoViewController(autoplay: autoplayText.text ?? "0", visiblePlayer: visiblePlayerSwitch.isOn, visiblePlayerPosition: position)
+        let vc = DemoViewController(autoplay: autoplayText.text ?? "0", visiblePlayer: visiblePlayerSwitch.isOn, visiblePlayerPosition: position, visiblePlayerWidth: widthSwitch.isOn)
          navigationController?.pushViewController(vc, animated: true)
     }
 }

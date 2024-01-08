@@ -23,8 +23,9 @@ class DemoViewController: UIViewController {
     private var autoplay: Autoplay!
     private var visiblePlayer: Bool!
     private var visiblePlayerPosition: VisiblePlayerPosition!
+    private var visiblePlayerWidth: CGFloat!
     
-    convenience init(autoplay: String, visiblePlayer: Bool, visiblePlayerPosition: VisiblePlayerPosition) {
+    convenience init(autoplay: String, visiblePlayer: Bool, visiblePlayerPosition: VisiblePlayerPosition, visiblePlayerWidth: Bool) {
         self.init()
         switch autoplay {
         case "1":
@@ -36,12 +37,13 @@ class DemoViewController: UIViewController {
         }
         self.visiblePlayer = visiblePlayer
         self.visiblePlayerPosition = visiblePlayerPosition
+        self.visiblePlayerWidth = visiblePlayerWidth ? 0.5 : 0.33
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         if visiblePlayer {
-            visiblePlayerView = InStream.shared.getVisiblePlayerView(in: self.view, scrollView: tableView, playerPosition: visiblePlayerPosition, widthPercent: 0.5, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0)
+            visiblePlayerView = InStream.shared.getVisiblePlayerView(in: self.view, scrollView: tableView, playerPosition: visiblePlayerPosition, widthPercent: visiblePlayerWidth, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0)
             visiblePlayerView?.isHidden = true
         }
     }
