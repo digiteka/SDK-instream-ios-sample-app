@@ -83,6 +83,7 @@ extension DemoViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let videoCell = videoCell, let videoView = videoCell.videoView {
             visiblePlayerView?.viewDidScroll(videoView: videoView)
+            videoView.viewDidScroll(scrollView: tableView)
         }
     }
 }

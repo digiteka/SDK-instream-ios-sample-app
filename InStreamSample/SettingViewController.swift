@@ -31,6 +31,9 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "Application de démonstration Digiteka"
+        
         autoplayLabel.text = "autoplay (default 0) :\n- 0 : click utilisateur\n- 1 : automatique\n- 2 : scroll à 50%"
         visiblePlayerLabel.text = "visible player ?"
         visiblePlayerPositionLabel.text = "position du visible player"
