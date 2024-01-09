@@ -15,6 +15,8 @@
 		4C3480072B46CFA300CE8299 /* InStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4C3480062B46CFA300CE8299 /* InStreamSDK */; };
 		4C34800A2B46D0AB00CE8299 /* InStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4C3480092B46D0AB00CE8299 /* InStreamSDK */; };
 		4C3480112B485BA700CE8299 /* InStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4C3480102B485BA700CE8299 /* InStreamSDK */; };
+		4C4BFD322B4D63CC00A1797A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BFD312B4D63CC00A1797A /* FirstViewController.swift */; };
+		4C4BFD352B4D667E00A1797A /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4BFD342B4D667E00A1797A /* SettingViewController.xib */; };
 		4C8E1A2F2B45AB5F0047A877 /* InStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4C8E1A2E2B45AB5F0047A877 /* InStreamSDK */; };
 		4C8E1A312B45AD360047A877 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8E1A302B45AD360047A877 /* SettingViewController.swift */; };
 		4C8E1A342B45AE6D0047A877 /* DemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C8E1A332B45AE6D0047A877 /* DemoViewController.xib */; };
@@ -34,6 +36,8 @@
 /* Begin PBXFileReference section */
 		4C347FEE2B45BACC00CE8299 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		4C347FF22B46ABD900CE8299 /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
+		4C4BFD312B4D63CC00A1797A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		4C4BFD342B4D667E00A1797A /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		4C8E1A302B45AD360047A877 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		4C8E1A332B45AE6D0047A877 /* DemoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoViewController.xib; sourceTree = "<group>"; };
 		4CCA7C3F2B456E77008CA04C /* InStreamSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InStreamSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C4BFD332B4D663100A1797A /* SettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4C8E1A302B45AD360047A877 /* SettingViewController.swift */,
+				4C4BFD342B4D667E00A1797A /* SettingViewController.xib */,
+			);
+			path = SettingViewController;
+			sourceTree = "<group>";
+		};
 		4C8E1A322B45AE580047A877 /* DemoViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +110,7 @@
 		4CCA7C412B456E77008CA04C /* InStreamSample */ = {
 			isa = PBXGroup;
 			children = (
+				4C4BFD332B4D663100A1797A /* SettingViewController */,
 				4C8E1A322B45AE580047A877 /* DemoViewController */,
 				4CCA7C582B4574A2008CA04C /* cell */,
 				4CCA7C422B456E77008CA04C /* AppDelegate.swift */,
@@ -105,7 +119,7 @@
 				4CCA7C4B2B456E78008CA04C /* Assets.xcassets */,
 				4CCA7C4D2B456E78008CA04C /* LaunchScreen.storyboard */,
 				4CCA7C502B456E78008CA04C /* Info.plist */,
-				4C8E1A302B45AD360047A877 /* SettingViewController.swift */,
+				4C4BFD312B4D63CC00A1797A /* FirstViewController.swift */,
 			);
 			path = InStreamSample;
 			sourceTree = "<group>";
@@ -194,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C4BFD352B4D667E00A1797A /* SettingViewController.xib in Resources */,
 				4CCA7C4F2B456E78008CA04C /* LaunchScreen.storyboard in Resources */,
 				4CCA7C4C2B456E78008CA04C /* Assets.xcassets in Resources */,
 				4CCA7C4A2B456E77008CA04C /* Main.storyboard in Resources */,
@@ -216,6 +231,7 @@
 				4CCA7C452B456E77008CA04C /* SceneDelegate.swift in Sources */,
 				4CCA7C572B457085008CA04C /* MockTableViewCell.swift in Sources */,
 				4C347FEF2B45BACC00CE8299 /* VideoTableViewCell.swift in Sources */,
+				4C4BFD322B4D63CC00A1797A /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

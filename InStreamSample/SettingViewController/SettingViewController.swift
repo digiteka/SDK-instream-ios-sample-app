@@ -32,8 +32,6 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Application de démonstration Digiteka"
-        
         autoplayLabel.text = "autoplay (default 0) :\n- 0 : click utilisateur\n- 1 : automatique\n- 2 : scroll à 50%"
         visiblePlayerLabel.text = "visible player ?"
         visiblePlayerPositionLabel.text = "position du visible player"
@@ -43,10 +41,11 @@ class SettingViewController: UIViewController {
     
     
     @IBAction func openDemoViewController(_ sender: UIButton) {
-        
         let vc = DemoViewController(autoplay: autoplayText.text ?? "0", visiblePlayer: visiblePlayerSwitch.isOn, visiblePlayerPosition: position, visiblePlayerWidth: widthSwitch.isOn)
          navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func openSwiftUIDemoViewController(_ sender: UIButton) {}
 }
 
 extension SettingViewController: UIPickerViewDataSource {
@@ -57,7 +56,6 @@ extension SettingViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return positions.count
     }
-
 }
 
 extension SettingViewController: UIPickerViewDelegate {
@@ -77,5 +75,4 @@ extension SettingViewController: UIPickerViewDelegate {
             position = .BOTTOM_START
         }
     }
-
 }

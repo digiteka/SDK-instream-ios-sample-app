@@ -47,7 +47,6 @@ class DemoViewController: UIViewController {
             visiblePlayerView?.isHidden = true
         }
     }
-
 }
 
 
