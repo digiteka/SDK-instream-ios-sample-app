@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import InStreamSDK
+import SwiftUI
 
 class SettingViewController: UIViewController {
     @IBOutlet private weak var autoplayLabel: UILabel!
@@ -45,7 +46,11 @@ class SettingViewController: UIViewController {
          navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func openSwiftUIDemoViewController(_ sender: UIButton) {}
+    @IBAction func openSwiftUIDemoViewController(_ sender: UIButton) {
+        let swiftUIView = DemoMainView()
+        let hostingController = UIHostingController(rootView: swiftUIView)
+        self.navigationController?.pushViewController(hostingController, animated: true)
+    }
 }
 
 extension SettingViewController: UIPickerViewDataSource {

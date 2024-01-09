@@ -91,6 +91,9 @@
                     <rect key="frame" x="113.66666666666669" y="545.33333333333337" width="166" height="35"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="See Demo Swift UI"/>
+                    <connections>
+                        <action selector="openSwiftUIDemoViewController:" destination="-1" eventType="touchDown" id="djN-UA-d7S"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="u4A-jP-baK"/>
