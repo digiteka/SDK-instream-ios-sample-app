@@ -12,24 +12,24 @@ import InStreamSDK
 class VideoTableViewCell: UITableViewCell {
     @IBOutlet weak var videoViewContainer: UIView!
     
-    private(set) var videoView: VideoView?
+    private(set) var mainPlayerView: MainPlayerView?
     
     private var isSetup: Bool = false
 
     func setUp(playMode: PlayMode) {
         if !isSetup {
             do {
-                try videoView = InStream.shared.initMainPlayerWith(config: DTKISMainPlayerConfig(zone: Constants.zone, src: Constants.src, urlreferrer: Constants.urlreferrer, gdprconsentstring: Constants.gdprconsentstring, tagparam: Constants.tagparam, playMode: playMode))
+                try mainPlayerView = InStream.shared.initMainPlayerWith(config: DTKISMainPlayerConfig(zone: Constants.zone, src: Constants.src, urlreferrer: Constants.urlreferrer, gdprconsentstring: Constants.gdprconsentstring, tagparam: Constants.tagparam, playMode: playMode))
             }
             catch {
             }
-            videoView?.setIn(containerView: videoViewContainer)
+            mainPlayerView?.setIn(containerView: videoViewContainer)
             isSetup = true
         }
     }
     
-    func setVideoView(_ videoView: VideoView) {
-        self.videoView = videoView
-        self.videoView?.setIn(containerView: videoViewContainer)
+    func setVideoView(_ mainPlayerView: MainPlayerView) {
+        self.mainPlayerView = mainPlayerView
+        self.mainPlayerView?.setIn(containerView: videoViewContainer)
     }
 }

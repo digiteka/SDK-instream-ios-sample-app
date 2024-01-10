@@ -79,8 +79,8 @@ extension DemoViewController: UITableViewDelegate {}
 // MARK: UIScrollViewDelegate
 extension DemoViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let videoCell = videoCell, let videoView = videoCell.videoView {
-            visiblePlayer?.viewDidScroll(videoView: videoView)
+        if let videoCell = videoCell, let videoView = videoCell.mainPlayerView {
+            visiblePlayer?.viewDidScroll(mainPlayerView: videoView)
             videoView.viewDidScroll(scrollView: tableView)
         }
     }
