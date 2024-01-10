@@ -16,7 +16,7 @@ struct DemoMainView: View {
             ) {
                 ForEach(0..<30, id: \.self) { index in
                     if index == 10 {
-                        VideoCellView(autoplay: .scroll)
+                        VideoCellView(playMode: .scroll)
                     } else {
                         Text("Ligne \(index), 1\nLigne \(index), 2\nLigne \(index), 3\nLigne \(index), 4")
                     }

@@ -18,33 +18,32 @@ class DemoViewController: UIViewController {
         }
     }
     
-    private var visiblePlayerView: VisiblePlayerView?
+    private var visiblePlayer: VisiblePlayer?
     private var videoCell: VideoTableViewCell?
-    private var autoplay: Autoplay!
-    private var visiblePlayer: Bool!
+    private var playMode: PlayMode!
+    private var hasVisiblePlayer: Bool!
     private var visiblePlayerPosition: VisiblePlayerPosition!
     private var visiblePlayerWidth: CGFloat!
     
-    convenience init(autoplay: String, visiblePlayer: Bool, visiblePlayerPosition: VisiblePlayerPosition, visiblePlayerWidth: Bool) {
+    convenience init(playMode: String, hasVisiblePlayer: Bool, visiblePlayerPosition: VisiblePlayerPosition, visiblePlayerWidth: Bool) {
         self.init()
-        switch autoplay {
+        switch playMode {
         case "1":
-            self.autoplay = .auto
+            self.playMode = .auto
         case "2":
-            self.autoplay = .scroll
+            self.playMode = .scroll
         default:
-            self.autoplay = .user
+            self.playMode = .user
         }
-        self.visiblePlayer = visiblePlayer
+        self.hasVisiblePlayer = hasVisiblePlayer
         self.visiblePlayerPosition = visiblePlayerPosition
         self.visiblePlayerWidth = visiblePlayerWidth ? 0.5 : 0.33
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if visiblePlayer {
-            visiblePlayerView = InStream.shared.getVisiblePlayerView(in: self.view, scrollView: tableView, playerPosition: visiblePlayerPosition, widthPercent: visiblePlayerWidth, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0)
-            visiblePlayerView?.isHidden = true
+        if hasVisiblePlayer {
+            visiblePlayer = InStream.shared.initVisiblePlayerWith(in: self.view, scrollView: tableView, playerPosition: visiblePlayerPosition, widthPercent: visiblePlayerWidth, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0)
         }
     }
 }
@@ -59,7 +58,7 @@ extension DemoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 10 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
-            cell.setUp(autoplay: autoplay)
+            cell.setUp(playMode: playMode)
             videoCell = cell
             return cell
         }
@@ -81,7 +80,7 @@ extension DemoViewController: UITableViewDelegate {}
 extension DemoViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let videoCell = videoCell, let videoView = videoCell.videoView {
-            visiblePlayerView?.viewDidScroll(videoView: videoView)
+            visiblePlayer?.viewDidScroll(videoView: videoView)
             videoView.viewDidScroll(scrollView: tableView)
         }
     }

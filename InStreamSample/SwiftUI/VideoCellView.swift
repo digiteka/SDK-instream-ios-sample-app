@@ -9,7 +9,7 @@ import SwiftUI
 import InStreamSDK
 
 struct VideoCellView: View {
-    @State var autoplay: Autoplay = .user
+    @State var playMode: PlayMode = .user
     
     let mdtk = "01357940"
     let zone = "1"
@@ -19,7 +19,8 @@ struct VideoCellView: View {
     let tagparam = "video_app&sa=D&ust=1586938702508000&usg=AOvVaw0EoSE28fXl4HfVg-fQrA4n"
     
     var body: some View {
-        InStreamUIViewRepresentable(mdtk: mdtk, zone: zone, src: src, urlreferrer: urlreferrer, gdprconsentstring: gdprconsentstring, tagparam: tagparam, autoplay: autoplay)
+//        InStreamUIViewRepresentable(mdtk: mdtk, zone: zone, src: src, urlreferrer: urlreferrer, gdprconsentstring: gdprconsentstring, tagparam: tagparam, playMode: playMode)
+        Text("azrefaezr")
     }
 }
 

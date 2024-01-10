@@ -18,17 +18,17 @@ class FirstViewController: UIViewController {
     }
     
     @IBAction func openClickToPlayVC(_ sender: UIButton) {
-        let vc = DemoViewController(autoplay: "0", visiblePlayer: false, visiblePlayerPosition: .BOTTOM_END, visiblePlayerWidth: false)
+        let vc = DemoViewController(playMode: "0", hasVisiblePlayer: false, visiblePlayerPosition: .BOTTOM_END, visiblePlayerWidth: false)
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func openScrollToPlayVC(_ sender: UIButton) {
-        let vc = DemoViewController(autoplay: "2", visiblePlayer: true, visiblePlayerPosition: .TOP_END, visiblePlayerWidth: false)
+        let vc = DemoViewController(playMode: "2", hasVisiblePlayer: true, visiblePlayerPosition: .TOP_END, visiblePlayerWidth: false)
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func openAutoPlayVC(_ sender: UIButton) {
-        let vc = DemoViewController(autoplay: "1", visiblePlayer: true, visiblePlayerPosition: .BOTTOM_START, visiblePlayerWidth: true)
+        let vc = DemoViewController(playMode: "1", hasVisiblePlayer: true, visiblePlayerPosition: .BOTTOM_START, visiblePlayerWidth: true)
         navigationController?.pushViewController(vc, animated: true)
     }
     

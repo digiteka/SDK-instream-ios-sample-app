@@ -33,7 +33,7 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        autoplayLabel.text = "autoplay (default 0) :\n- 0 : click utilisateur\n- 1 : automatique\n- 2 : scroll à 50%"
+        autoplayLabel.text = "playMode (default 0) :\n- 0 : click utilisateur\n- 1 : automatique\n- 2 : scroll à 50%"
         visiblePlayerLabel.text = "visible player ?"
         visiblePlayerPositionLabel.text = "position du visible player"
         widthLabel.text = "largeur du visible player :   33%"
@@ -42,7 +42,7 @@ class SettingViewController: UIViewController {
     
     
     @IBAction func openDemoViewController(_ sender: UIButton) {
-        let vc = DemoViewController(autoplay: autoplayText.text ?? "0", visiblePlayer: visiblePlayerSwitch.isOn, visiblePlayerPosition: position, visiblePlayerWidth: widthSwitch.isOn)
+        let vc = DemoViewController(playMode: autoplayText.text ?? "0", hasVisiblePlayer: visiblePlayerSwitch.isOn, visiblePlayerPosition: position, visiblePlayerWidth: widthSwitch.isOn)
          navigationController?.pushViewController(vc, animated: true)
     }
     
