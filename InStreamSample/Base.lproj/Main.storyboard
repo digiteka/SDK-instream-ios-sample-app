@@ -33,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="digiteka_icon-29" translatesAutoresizingMaskIntoConstraints="NO" id="Cvo-YU-0KN">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="digitekaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Cvo-YU-0KN">
                                 <rect key="frame" x="182" y="133" width="29" height="29"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szi-Ie-ToD" userLabel="clickToPlay">
@@ -92,7 +92,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="digiteka_icon-29" width="29" height="29"/>
+        <image name="digitekaLogo" width="29" height="29"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
