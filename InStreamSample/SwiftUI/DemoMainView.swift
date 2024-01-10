@@ -20,9 +20,9 @@ struct DemoMainView: View {
         VideoCellView(playMode: playMode)
     }
     
-    private var visiblePlayer: VisiblePlayer {
-        InStream.shared.initVisiblePlayerWith(config: DTKISVisiblePlayerConfig(playerPosition: .BOTTOM_END, widthPercent: 0.5, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0), in: self.body as! UIView, scrollView: tableView)
-    }
+//    private var visiblePlayer: VisiblePlayer {
+//        InStream.shared.initVisiblePlayerWith(config: DTKISVisiblePlayerConfig(playerPosition: .BOTTOM_END, widthPercent: 0.5, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0), in: self.body as! UIView, scrollView: tableView)
+//    }
     
     var body: some View {
         ScrollView {
