@@ -47,7 +47,16 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func openSwiftUIDemoViewController(_ sender: UIButton) {
-        let swiftUIView = DemoMainView()
+        var playMode: PlayMode = .user
+        switch autoplayText.text {
+        case "1":
+            playMode = .auto
+        case "2":
+            playMode = .scroll
+        default:
+            playMode = .user
+        }
+        let swiftUIView = DemoMainView(playMode: playMode, hasVisiblePlayer: visiblePlayerSwitch.isOn, visiblePlayerPosition: position, visiblePlayerWidth: widthSwitch.isOn)
         let hostingController = UIHostingController(rootView: swiftUIView)
         self.navigationController?.pushViewController(hostingController, animated: true)
     }
