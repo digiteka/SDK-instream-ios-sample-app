@@ -19,6 +19,7 @@
 		4C4BFD352B4D667E00A1797A /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4BFD342B4D667E00A1797A /* SettingViewController.xib */; };
 		4C4BFD382B4D74E700A1797A /* DemoMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BFD372B4D74E700A1797A /* DemoMainView.swift */; };
 		4C4BFD3A2B4D783D00A1797A /* VideoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BFD392B4D783D00A1797A /* VideoCellView.swift */; };
+		4C4BFD452B4EC85C00A1797A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BFD442B4EC85C00A1797A /* Constants.swift */; };
 		4C8E1A2F2B45AB5F0047A877 /* InStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4C8E1A2E2B45AB5F0047A877 /* InStreamSDK */; };
 		4C8E1A312B45AD360047A877 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8E1A302B45AD360047A877 /* SettingViewController.swift */; };
 		4C8E1A342B45AE6D0047A877 /* DemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C8E1A332B45AE6D0047A877 /* DemoViewController.xib */; };
@@ -42,6 +43,7 @@
 		4C4BFD342B4D667E00A1797A /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		4C4BFD372B4D74E700A1797A /* DemoMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMainView.swift; sourceTree = "<group>"; };
 		4C4BFD392B4D783D00A1797A /* VideoCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCellView.swift; sourceTree = "<group>"; };
+		4C4BFD442B4EC85C00A1797A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4C8E1A302B45AD360047A877 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		4C8E1A332B45AE6D0047A877 /* DemoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoViewController.xib; sourceTree = "<group>"; };
 		4CCA7C3F2B456E77008CA04C /* InStreamSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InStreamSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 				4CCA7C4D2B456E78008CA04C /* LaunchScreen.storyboard */,
 				4CCA7C4B2B456E78008CA04C /* Assets.xcassets */,
 				4CCA7C502B456E78008CA04C /* Info.plist */,
+				4C4BFD442B4EC85C00A1797A /* Constants.swift */,
 			);
 			path = InStreamSample;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				4C4BFD382B4D74E700A1797A /* DemoMainView.swift in Sources */,
 				4CCA7C432B456E77008CA04C /* AppDelegate.swift in Sources */,
 				4CCA7C452B456E77008CA04C /* SceneDelegate.swift in Sources */,
+				4C4BFD452B4EC85C00A1797A /* Constants.swift in Sources */,
 				4C4BFD3A2B4D783D00A1797A /* VideoCellView.swift in Sources */,
 				4CCA7C572B457085008CA04C /* MockTableViewCell.swift in Sources */,
 				4C347FEF2B45BACC00CE8299 /* VideoTableViewCell.swift in Sources */,
