@@ -43,7 +43,7 @@ class DemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if hasVisiblePlayer {
-            visiblePlayer = InStream.shared.initVisiblePlayerWith(in: self.view, scrollView: tableView, playerPosition: visiblePlayerPosition, widthPercent: visiblePlayerWidth, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0)
+            visiblePlayer = InStream.shared.initVisiblePlayerWith(config: DTKISVisiblePlayerConfig(playerPosition: visiblePlayerPosition, widthPercent: visiblePlayerWidth, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0), in: self.view, scrollView: tableView)
         }
     }
 }
