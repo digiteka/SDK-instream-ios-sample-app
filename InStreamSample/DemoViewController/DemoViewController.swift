@@ -43,7 +43,7 @@ class DemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if hasVisiblePlayer {
-            visiblePlayer = InStream.shared.initVisiblePlayerWith(config: DTKISVisiblePlayerConfig(playerPosition: visiblePlayerPosition, widthPercent: visiblePlayerWidth, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0), in: self.view, scrollView: tableView)
+            visiblePlayer = InStream.shared.initVisiblePlayerWith(config: DTKISVisiblePlayerConfig(playerPosition: visiblePlayerPosition, widthPercent: visiblePlayerWidth, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0), in: self.view)
         }
     }
 }
@@ -80,7 +80,7 @@ extension DemoViewController: UITableViewDelegate {}
 extension DemoViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let videoCell = videoCell, let videoView = videoCell.mainPlayerView {
-            visiblePlayer?.viewDidScroll(mainPlayerView: videoView)
+            visiblePlayer?.viewDidScroll(mainPlayerView: videoView, scrollView: scrollView)
             videoView.viewDidScroll(scrollView: tableView)
         }
     }
