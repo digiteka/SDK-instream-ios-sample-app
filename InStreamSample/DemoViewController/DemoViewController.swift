@@ -18,7 +18,7 @@ class DemoViewController: UIViewController {
         }
     }
     
-    private var visiblePlayer: VisiblePlayer?
+    private var visiblePlayer: VisiblePlayerView?
     private var videoCell: VideoTableViewCell?
     private var playMode: PlayMode!
     private var hasVisiblePlayer: Bool!
