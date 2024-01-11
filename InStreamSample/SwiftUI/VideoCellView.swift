@@ -9,15 +9,20 @@ import SwiftUI
 import InStreamSDK
 
 struct VideoCellView: View {
-    @State var playMode: PlayMode
+    @State var playMode: PlayMode = .user
+    
+    var mainPlayerView: MainPlayerViewRepresentable? {
+        let config = DTKISMainPlayerConfig(zone: Constants.zone, src: Constants.src, urlreferrer: Constants.urlreferrer, gdprconsentstring: Constants.gdprconsentstring, tagparam: Constants.tagparam, playMode: playMode)
+        do {
+            return try InStream.shared.initMainPlayerRepresentable(config: config)
+        } catch {
+            return nil
+        }
+    }
     
     var body: some View {
-        let config = DTKISMainPlayerConfig(zone: Constants.zone, src: Constants.src, urlreferrer: Constants.urlreferrer, gdprconsentstring: Constants.gdprconsentstring, tagparam: Constants.tagparam, playMode: playMode)
-        
-        if let view = try? InStream.shared.initMainPlayerRepresentable(config: config) {
-            view
+        mainPlayerView
                 .frame(width: 393, height: 350)
-        }
     }
 }
 
