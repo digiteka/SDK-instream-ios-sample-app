@@ -16,12 +16,14 @@ struct DemoMainView: View {
     
     @State private var scrollOffset = CGFloat.zero
     
+    @State var visiblePlayerOn: Bool = false
+    
     var videoCell: VideoCellView {
         VideoCellView(playMode: playMode)
     }
     
-    private var visiblePlayer: VisiblePlayerView {
-        InStream.shared.initVisiblePlayerWith(config: DTKISVisiblePlayerConfig(playerPosition: .BOTTOM_END, widthPercent: 0.5, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0), in: self.body as! UIView)
+    private var visiblePlayer: VisiblePlayerViewRepresentable {
+        InStream.shared.initVisiblePlayerRepresentable(config: DTKISVisiblePlayerConfig(playerPosition: .BOTTOM_END, widthPercent: 0.5, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0), in: UIHostingController(rootView: self).view)
     }
     
     var body: some View {
@@ -36,6 +38,7 @@ struct DemoMainView: View {
                         self.updateScrollOffset(with: geometry)
                     }
             }
+            visiblePlayer
             VStack(
                 alignment: .leading,
                 spacing: 10
@@ -59,10 +62,16 @@ struct DemoMainView: View {
     }
     
     private func updateScrollOffset(with geometry: GeometryProxy) {
-            DispatchQueue.main.async {
-                self.scrollOffset = geometry.frame(in: .global).minY
+        DispatchQueue.main.async {
+            self.scrollOffset = geometry.frame(in: .global).minY
+            if self.scrollOffset < -580.0 && !visiblePlayerOn {
+                if let mainPlayerView = videoCell.mainPlayerView {
+                    visiblePlayer.viewDidScroll(mainPlayerRepresentable: mainPlayerView)
+                    visiblePlayerOn = true
+                }
             }
         }
+    }
 }
 
 #Preview {
