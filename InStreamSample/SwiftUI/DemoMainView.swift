@@ -37,9 +37,6 @@ struct DemoMainView: View {
                         }
                     }
             }
-            if hasVisiblePlayer {
-                visiblePlayer
-            }
             VStack(
                 alignment: .leading,
                 spacing: 10
@@ -60,6 +57,14 @@ struct DemoMainView: View {
             .frame(maxWidth: .infinity)
             .padding()
         }
+        .overlay(
+            VStack {
+                if hasVisiblePlayer {
+                    visiblePlayer
+                        .allowsHitTesting(false)
+                }
+            }
+        )
     }
     
     private func updateScrollOffset(with geometry: GeometryProxy) {
