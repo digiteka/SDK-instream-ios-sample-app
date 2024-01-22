@@ -25,16 +25,9 @@ class DemoViewController: UIViewController {
     private var visiblePlayerPosition: VisiblePlayerPosition!
     private var visiblePlayerWidth: CGFloat!
     
-    convenience init(playMode: String, hasVisiblePlayer: Bool, visiblePlayerPosition: VisiblePlayerPosition, visiblePlayerWidth: Bool) {
+    convenience init(playMode: PlayMode, hasVisiblePlayer: Bool, visiblePlayerPosition: VisiblePlayerPosition, visiblePlayerWidth: Bool) {
         self.init()
-        switch playMode {
-        case "1":
-            self.playMode = .auto
-        case "2":
-            self.playMode = .scroll
-        default:
-            self.playMode = .user
-        }
+        self.playMode = playMode
         self.hasVisiblePlayer = hasVisiblePlayer
         self.visiblePlayerPosition = visiblePlayerPosition
         self.visiblePlayerWidth = visiblePlayerWidth ? 0.5 : 0.33

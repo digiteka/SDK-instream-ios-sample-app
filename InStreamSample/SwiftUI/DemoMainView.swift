@@ -23,7 +23,7 @@ struct DemoMainView: View {
     }
     
     private var visiblePlayer: VisiblePlayerViewRepresentable {
-        InStream.shared.initVisiblePlayerRepresentable(config: DTKISVisiblePlayerConfig(playerPosition: .BOTTOM_END, widthPercent: 0.5, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0), in: UIHostingController(rootView: self).view)
+        InStream.shared.initVisiblePlayerRepresentable(config: DTKISVisiblePlayerConfig(playerPosition: visiblePlayerPosition, widthPercent: visiblePlayerWidth ? 0.5 : 0.33, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0), in: UIHostingController(rootView: self).view)
     }
     
     var body: some View {
@@ -31,14 +31,15 @@ struct DemoMainView: View {
             GeometryReader { geometry in
                 Color.clear
                     .frame(height: 1)
-                    .onAppear {
-                        self.updateScrollOffset(with: geometry)
-                    }
                     .onChange(of: geometry.frame(in: .global).minY) { _ in
-                        self.updateScrollOffset(with: geometry)
+                        if hasVisiblePlayer {
+                            self.updateScrollOffset(with: geometry)
+                        }
                     }
             }
-            visiblePlayer
+            if hasVisiblePlayer {
+                visiblePlayer
+            }
             VStack(
                 alignment: .leading,
                 spacing: 10
