@@ -22,26 +22,31 @@ struct DemoMainView: View {
         VideoCellView(playMode: playMode)
     }
     
+    var visiblePlayerOverlayView: VisiblePlayerOverlayView? {
+        do {
+            return try InStream.shared.initVisiblePlayerOverlayView(config: DTKISVisiblePlayerConfig(playerPosition: visiblePlayerPosition, widthPercent: visiblePlayerWidth ? 0.5 : 0.33, ratio: "16:9", horizontalMargin: 30, verticalMargin: 20))
+        } catch {
+            return nil
+        }
+    }
+    
     var body: some View {
         ZStack {
-            VisiblePlayerOverlayView(config: DTKISVisiblePlayerConfig(playerPosition: visiblePlayerPosition, widthPercent: 0.5, ratio: "16:9", horizontalMargin: 30, verticalMargin: 20)).opacity(visiblePlayerOn ? 1 : 0)
+            visiblePlayerOverlayView.opacity(visiblePlayerOn ? 1 : 0)
             ScrollView {
-                GeometryReader { geometry in
-                    Color.clear
-                        .frame(height: 1)
-                        .onChange(of: geometry.frame(in: .global).minY) { _ in
-                            if hasVisiblePlayer {
-                                self.updateScrollOffset(with: geometry)
-                            }
-                        }
-                }
-                VStack(
+                LazyVStack(
                     alignment: .leading,
                     spacing: 10
                 ) {
                     ForEach(0..<30, id: \.self) { index in
                         if index == 10 {
                             videoCell
+                                .onAppear {
+                                    visiblePlayerOn = false
+                                }
+                                .onDisappear {
+                                    visiblePlayerOn = true
+                                }
                         } else {
                             HStack {
                                 Spacer()
@@ -53,19 +58,6 @@ struct DemoMainView: View {
                     }
                 }
                 .frame(maxWidth: .infinity)
-                .padding()
-            }
-        }
-    }
-    
-    private func updateScrollOffset(with geometry: GeometryProxy) {
-        DispatchQueue.main.async {
-            self.scrollOffset = geometry.frame(in: .global).minY
-            if self.scrollOffset < -580.0 && !visiblePlayerOn {
-                if let mainPlayerView = videoCell.mainPlayerView {
-                    print("[DTKIS] SwiftUI View did scroll")
-                    visiblePlayerOn = true
-                }
             }
         }
     }
