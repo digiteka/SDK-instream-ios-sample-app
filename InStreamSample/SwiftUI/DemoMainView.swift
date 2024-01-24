@@ -22,49 +22,40 @@ struct DemoMainView: View {
         VideoCellView(playMode: playMode)
     }
     
-    private var visiblePlayer: VisiblePlayerViewRepresentable {
-        InStream.shared.initVisiblePlayerRepresentable(config: DTKISVisiblePlayerConfig(playerPosition: visiblePlayerPosition, widthPercent: visiblePlayerWidth ? 0.5 : 0.33, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0), in: UIHostingController(rootView: self).view)
-    }
-    
     var body: some View {
-        ScrollView {
-            GeometryReader { geometry in
-                Color.clear
-                    .frame(height: 1)
-                    .onChange(of: geometry.frame(in: .global).minY) { _ in
-                        if hasVisiblePlayer {
-                            self.updateScrollOffset(with: geometry)
+        ZStack {
+            VisiblePlayerOverlayView(config: DTKISVisiblePlayerConfig(playerPosition: visiblePlayerPosition, widthPercent: 0.5, ratio: "16:9", horizontalMargin: 30, verticalMargin: 20)).opacity(visiblePlayerOn ? 1 : 0)
+            ScrollView {
+                GeometryReader { geometry in
+                    Color.clear
+                        .frame(height: 1)
+                        .onChange(of: geometry.frame(in: .global).minY) { _ in
+                            if hasVisiblePlayer {
+                                self.updateScrollOffset(with: geometry)
+                            }
                         }
-                    }
-            }
-            VStack(
-                alignment: .leading,
-                spacing: 10
-            ) {
-                ForEach(0..<30, id: \.self) { index in
-                    if index == 10 {
-                        videoCell
-                    } else {
-                        HStack {
-                            Spacer()
-                            Text("Ligne \(index), 1\nLigne \(index), 2\nLigne \(index), 3\nLigne \(index), 4")
-                                .fixedSize(horizontal: false, vertical: true)
-                            Spacer()
+                }
+                VStack(
+                    alignment: .leading,
+                    spacing: 10
+                ) {
+                    ForEach(0..<30, id: \.self) { index in
+                        if index == 10 {
+                            videoCell
+                        } else {
+                            HStack {
+                                Spacer()
+                                Text("Ligne \(index), 1\nLigne \(index), 2\nLigne \(index), 3\nLigne \(index), 4")
+                                    .fixedSize(horizontal: false, vertical: true)
+                                Spacer()
+                            }
                         }
                     }
                 }
+                .frame(maxWidth: .infinity)
+                .padding()
             }
-            .frame(maxWidth: .infinity)
-            .padding()
         }
-        .overlay(
-            VStack {
-                if hasVisiblePlayer {
-                    visiblePlayer
-                        .allowsHitTesting(false)
-                }
-            }
-        )
     }
     
     private func updateScrollOffset(with geometry: GeometryProxy) {
@@ -72,7 +63,7 @@ struct DemoMainView: View {
             self.scrollOffset = geometry.frame(in: .global).minY
             if self.scrollOffset < -580.0 && !visiblePlayerOn {
                 if let mainPlayerView = videoCell.mainPlayerView {
-                    visiblePlayer.viewDidScroll(mainPlayerRepresentable: mainPlayerView)
+                    print("[DTKIS] SwiftUI View did scroll")
                     visiblePlayerOn = true
                 }
             }
