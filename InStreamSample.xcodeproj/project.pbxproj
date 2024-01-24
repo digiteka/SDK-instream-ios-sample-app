@@ -102,6 +102,7 @@
 		4C8E1A322B45AE580047A877 /* DemoViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4CCA7C582B4574A2008CA04C /* cell */,
 				4CCA7C462B456E77008CA04C /* DemoViewController.swift */,
 				4C8E1A332B45AE6D0047A877 /* DemoViewController.xib */,
 			);
@@ -130,7 +131,6 @@
 				4C4BFD362B4D741F00A1797A /* SwiftUI */,
 				4C4BFD332B4D663100A1797A /* SettingViewController */,
 				4C8E1A322B45AE580047A877 /* DemoViewController */,
-				4CCA7C582B4574A2008CA04C /* cell */,
 				4CCA7C422B456E77008CA04C /* AppDelegate.swift */,
 				4CCA7C442B456E77008CA04C /* SceneDelegate.swift */,
 				4C4BFD312B4D63CC00A1797A /* FirstViewController.swift */,
