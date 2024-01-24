@@ -14,8 +14,6 @@ struct DemoMainView: View {
     var visiblePlayerPosition: VisiblePlayerPosition!
     var visiblePlayerWidth: Bool!
     
-    @State private var scrollOffset = CGFloat.zero
-    
     @State var visiblePlayerOn: Bool = false
     
     var videoCell: VideoCellView {
@@ -40,19 +38,13 @@ struct DemoMainView: View {
                     ForEach(0..<30, id: \.self) { index in
                         if index == 10 {
                             videoCell
-                                .onAppear {
-                                    visiblePlayerOn = false
-                                }
                                 .onDisappear {
                                     visiblePlayerOn = true
                                 }
                         } else {
-                            HStack {
-                                Spacer()
-                                Text("Ligne \(index), 1\nLigne \(index), 2\nLigne \(index), 3\nLigne \(index), 4")
-                                    .fixedSize(horizontal: false, vertical: true)
-                                Spacer()
-                            }
+                            Text("Ligne \(index), 1\nLigne \(index), 2\nLigne \(index), 3\nLigne \(index), 4")
+                                .fixedSize(horizontal: false, vertical: true)
+                                .padding(.leading)
                         }
                     }
                 }
