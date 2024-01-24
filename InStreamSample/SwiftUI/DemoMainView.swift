@@ -32,7 +32,6 @@ struct DemoMainView: View {
     
     var body: some View {
         ZStack {
-            visiblePlayerOverlayView.opacity(visiblePlayerOn ? 1 : 0)
             ScrollView {
                 LazyVStack(
                     alignment: .leading,
@@ -59,6 +58,7 @@ struct DemoMainView: View {
                 }
                 .frame(maxWidth: .infinity)
             }
+            visiblePlayerOverlayView.opacity(visiblePlayerOn ? 1 : 0)
         }
     }
 }
