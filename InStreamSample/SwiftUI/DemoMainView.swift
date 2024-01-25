@@ -13,44 +13,33 @@ struct DemoMainView: View {
     var hasVisiblePlayer: Bool!
     var visiblePlayerPosition: VisiblePlayerPosition!
     var visiblePlayerWidth: Bool!
-    
-    @State var visiblePlayerOn: Bool = false
-    
-    var videoCell: VideoCellView {
-        VideoCellView(playMode: playMode)
-    }
-    
-    var visiblePlayerOverlayView: VisiblePlayerOverlayView? {
-        do {
-            return try InStream.shared.initVisiblePlayerOverlayView(config: DTKISVisiblePlayerConfig(playerPosition: visiblePlayerPosition, widthPercent: visiblePlayerWidth ? 0.5 : 0.33, ratio: "16:9", horizontalMargin: 30, verticalMargin: 20))
-        } catch {
-            return nil
+    let config = DTKISMainPlayerConfig(zone: Constants.zone,
+                                       src: Constants.src,
+                                       urlreferrer: Constants.urlreferrer,
+                                       gdprconsentstring: Constants.gdprconsentstring,
+                                       tagparam: Constants.tagparam,
+                                       playMode: .user) //playMode)
+
+
+    var body: some View {
+        //TODO: config
+        InStreamScrollVStack(data: MockData.getMockedData(size: 40), playerInsertPosition: 3) { element in
+            Text(element.title)
+                .frame(width: 300, height: 300)
+                .foregroundColor(Color.black)
+                .background(Color.blue)
         }
     }
-    
-    var body: some View {
-        ZStack {
-            ScrollView {
-                LazyVStack(
-                    alignment: .leading,
-                    spacing: 10
-                ) {
-                    ForEach(0..<30, id: \.self) { index in
-                        if index == 10 {
-                            videoCell
-                                .onDisappear {
-                                    visiblePlayerOn = true
-                                }
-                        } else {
-                            Text("Ligne \(index), 1\nLigne \(index), 2\nLigne \(index), 3\nLigne \(index), 4")
-                                .fixedSize(horizontal: false, vertical: true)
-                                .padding(.leading)
-                        }
-                    }
-                }
-                .frame(maxWidth: .infinity)
-            }
-            visiblePlayerOverlayView.opacity(visiblePlayerOn ? 1 : 0)
+}
+
+struct MockData {
+    var id: UUID = UUID()
+    let title: String
+    let subtitle: String
+
+    static func getMockedData(size: Int) -> [MockData] {
+        (1...size).map { index in
+            MockData(title: "TITLE \(index)", subtitle: "SUBTITLE \(index)")
         }
     }
 }
