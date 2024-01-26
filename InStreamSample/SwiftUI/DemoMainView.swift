@@ -23,7 +23,7 @@ struct DemoMainView: View {
 
     var body: some View {
         //TODO: config
-        InStreamScrollVStack(data: MockData.getMockedData(size: 40), playerInsertPosition: 3) { element in
+        InStreamScrollVStack(config: config, data: MockData.getMockedData(size: 40), playerInsertPosition: 3) { element in
             Text(element.title)
                 .frame(width: 300, height: 300)
                 .foregroundColor(Color.black)
