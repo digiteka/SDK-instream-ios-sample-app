@@ -10,20 +10,22 @@ import InStreamSDK
 
 struct DemoMainView: View {
     var playMode: PlayMode = .user
+    var playerPosition: VisiblePlayerPosition!
     var hasVisiblePlayer: Bool!
     var visiblePlayerPosition: VisiblePlayerPosition!
     var visiblePlayerWidth: Bool!
-    let config = DTKISMainPlayerConfig(zone: Constants.zone,
-                                       src: Constants.src,
-                                       urlreferrer: Constants.urlreferrer,
-                                       gdprconsentstring: Constants.gdprconsentstring,
-                                       tagparam: Constants.tagparam,
-                                       playMode: .user) //playMode)
-
 
     var body: some View {
-        //TODO: config
-        InStreamScrollVStack(config: config, data: MockData.getMockedData(size: 40), playerInsertPosition: 3) { element in
+        let config = DTKISMainPlayerConfig(zone: Constants.zone,
+                                           src: Constants.src,
+                                           urlreferrer: Constants.urlreferrer,
+                                           gdprconsentstring: Constants.gdprconsentstring,
+                                           tagparam: Constants.tagparam,
+                                           playMode: playMode)
+        
+        let visiblePlayerConfig = DTKISVisiblePlayerConfig(playerPosition: playerPosition, widthPercent: visiblePlayerWidth ? 0.5 : 0.33, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 20.0)
+        
+        InStreamScrollVStack(config: config, visiblePlayerConfig: visiblePlayerConfig, data: MockData.getMockedData(size: 40), playerInsertPosition: 3) { element in
             Text(element.title)
                 .frame(width: 300, height: 300)
                 .foregroundColor(Color.black)
