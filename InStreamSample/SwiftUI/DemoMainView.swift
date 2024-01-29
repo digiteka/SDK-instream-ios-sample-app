@@ -25,23 +25,23 @@ struct DemoMainView: View {
         
         let visiblePlayerConfig = DTKISVisiblePlayerConfig(playerPosition: playerPosition, widthPercent: visiblePlayerWidth ? 0.5 : 0.33, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 20.0)
         
-        InStreamScrollVStack(config: config, visiblePlayerConfig: visiblePlayerConfig, data: MockData.getMockedData(size: 40), playerInsertPosition: 3) { element in
-            Text(element.title)
-                .frame(width: 300, height: 300)
-                .foregroundColor(Color.black)
-                .background(Color.blue)
+        InStreamScrollVStack(config: config, visiblePlayerConfig: hasVisiblePlayer ? visiblePlayerConfig : nil, data: MockData.getMockedData(size: 40), playerInsertPosition: 10) { element in
+            Text("Ligne \(element.index), 1\nLigne \(element.index), 2\nLigne \(element.index), 3\nLigne \(element.index), 4")
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.leading)
         }
     }
 }
 
 struct MockData {
     var id: UUID = UUID()
+    let index: Int
     let title: String
     let subtitle: String
 
     static func getMockedData(size: Int) -> [MockData] {
         (1...size).map { index in
-            MockData(title: "TITLE \(index)", subtitle: "SUBTITLE \(index)")
+            MockData(index: index, title: "TITLE \(index)", subtitle: "SUBTITLE \(index)")
         }
     }
 }
