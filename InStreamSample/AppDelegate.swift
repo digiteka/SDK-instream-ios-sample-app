@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         do {
-            try InStream.shared.initialize(config: DTKISConfig(mdtk: Constants.mdtk))
+            try InStream.shared.initialize(config: DTKISConfig(mdtk: Constants.mdtk, debugMode: true))
         } catch {
             print("Can't init InStream with error \(error.localizedDescription)")
         }

@@ -10,59 +10,40 @@ import InStreamSDK
 
 struct DemoMainView: View {
     var playMode: PlayMode = .user
+    var playerPosition: VisiblePlayerPosition!
     var hasVisiblePlayer: Bool!
     var visiblePlayerPosition: VisiblePlayerPosition!
     var visiblePlayerWidth: Bool!
-    
-    @State private var scrollOffset = CGFloat.zero
-    
-    var videoCell: VideoCellView {
-        VideoCellView(playMode: playMode)
-    }
-    
-//    private var visiblePlayer: VisiblePlayer {
-//        InStream.shared.initVisiblePlayerWith(config: DTKISVisiblePlayerConfig(playerPosition: .BOTTOM_END, widthPercent: 0.5, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0), in: self.body as! UIView, scrollView: tableView)
-//    }
-    
+
     var body: some View {
-        ScrollView {
-            GeometryReader { geometry in
-                Color.clear
-                    .frame(height: 1)
-                    .onAppear {
-                        self.updateScrollOffset(with: geometry)
-                    }
-                    .onChange(of: geometry.frame(in: .global).minY) { _ in
-                        self.updateScrollOffset(with: geometry)
-                    }
-            }
-            VStack(
-                alignment: .leading,
-                spacing: 10
-            ) {
-                ForEach(0..<30, id: \.self) { index in
-                    if index == 10 {
-                        videoCell
-                    } else {
-                        HStack {
-                            Spacer()
-                            Text("Ligne \(index), 1\nLigne \(index), 2\nLigne \(index), 3\nLigne \(index), 4")
-                                .fixedSize(horizontal: false, vertical: true)
-                            Spacer()
-                        }
-                    }
-                }
-            }
-            .frame(maxWidth: .infinity)
-            .padding()
+        let config = DTKISMainPlayerConfig(zone: Constants.zone,
+                                           src: Constants.src,
+                                           urlreferrer: Constants.urlreferrer,
+                                           gdprconsentstring: Constants.gdprconsentstring,
+                                           tagparam: Constants.tagparam,
+                                           playMode: playMode)
+        
+        let visiblePlayerConfig = DTKISVisiblePlayerConfig(playerPosition: playerPosition, widthPercent: visiblePlayerWidth ? 0.5 : 0.33, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 20.0)
+        
+        InStreamScrollVStack(config: config, visiblePlayerConfig: hasVisiblePlayer ? visiblePlayerConfig : nil, data: MockData.getMockedData(size: 40), playerInsertPosition: 10) { element in
+            Text("Ligne \(element.index), 1\nLigne \(element.index), 2\nLigne \(element.index), 3\nLigne \(element.index), 4")
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.leading)
         }
     }
-    
-    private func updateScrollOffset(with geometry: GeometryProxy) {
-            DispatchQueue.main.async {
-                self.scrollOffset = geometry.frame(in: .global).minY
-            }
+}
+
+struct MockData {
+    var id: UUID = UUID()
+    let index: Int
+    let title: String
+    let subtitle: String
+
+    static func getMockedData(size: Int) -> [MockData] {
+        (1...size).map { index in
+            MockData(index: index, title: "TITLE \(index)", subtitle: "SUBTITLE \(index)")
         }
+    }
 }
 
 #Preview {

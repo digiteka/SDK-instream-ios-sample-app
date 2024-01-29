@@ -40,23 +40,24 @@ class SettingViewController: UIViewController {
         percent50Label.text = "50%"
     }
     
+    private func getPlayMode() -> PlayMode {
+        switch autoplayText.text {
+        case "1":
+            return .auto
+        case "2":
+            return .scroll
+        default:
+            return .user
+        }
+    }
     
     @IBAction func openDemoViewController(_ sender: UIButton) {
-        let vc = DemoViewController(playMode: autoplayText.text ?? "0", hasVisiblePlayer: visiblePlayerSwitch.isOn, visiblePlayerPosition: position, visiblePlayerWidth: widthSwitch.isOn)
+        let vc = DemoViewController(playMode: getPlayMode(), hasVisiblePlayer: visiblePlayerSwitch.isOn, visiblePlayerPosition: position, visiblePlayerWidth: widthSwitch.isOn)
          navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func openSwiftUIDemoViewController(_ sender: UIButton) {
-        var playMode: PlayMode = .user
-        switch autoplayText.text {
-        case "1":
-            playMode = .auto
-        case "2":
-            playMode = .scroll
-        default:
-            playMode = .user
-        }
-        let swiftUIView = DemoMainView(playMode: playMode, hasVisiblePlayer: visiblePlayerSwitch.isOn, visiblePlayerPosition: position, visiblePlayerWidth: widthSwitch.isOn)
+        let swiftUIView = DemoMainView(playMode: getPlayMode(), playerPosition: position, hasVisiblePlayer: visiblePlayerSwitch.isOn, visiblePlayerPosition: position, visiblePlayerWidth: widthSwitch.isOn)
         let hostingController = UIHostingController(rootView: swiftUIView)
         self.navigationController?.pushViewController(hostingController, animated: true)
     }

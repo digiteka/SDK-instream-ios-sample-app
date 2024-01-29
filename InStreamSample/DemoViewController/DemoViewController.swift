@@ -25,16 +25,9 @@ class DemoViewController: UIViewController {
     private var visiblePlayerPosition: VisiblePlayerPosition!
     private var visiblePlayerWidth: CGFloat!
     
-    convenience init(playMode: String, hasVisiblePlayer: Bool, visiblePlayerPosition: VisiblePlayerPosition, visiblePlayerWidth: Bool) {
+    convenience init(playMode: PlayMode, hasVisiblePlayer: Bool, visiblePlayerPosition: VisiblePlayerPosition, visiblePlayerWidth: Bool) {
         self.init()
-        switch playMode {
-        case "1":
-            self.playMode = .auto
-        case "2":
-            self.playMode = .scroll
-        default:
-            self.playMode = .user
-        }
+        self.playMode = playMode
         self.hasVisiblePlayer = hasVisiblePlayer
         self.visiblePlayerPosition = visiblePlayerPosition
         self.visiblePlayerWidth = visiblePlayerWidth ? 0.5 : 0.33
@@ -43,7 +36,7 @@ class DemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if hasVisiblePlayer {
-            visiblePlayer = InStream.shared.initVisiblePlayerWith(config: DTKISVisiblePlayerConfig(playerPosition: visiblePlayerPosition, widthPercent: visiblePlayerWidth, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0), in: self.view, scrollView: tableView)
+            visiblePlayer = InStream.shared.initVisiblePlayerWith(config: DTKISVisiblePlayerConfig(playerPosition: visiblePlayerPosition, widthPercent: visiblePlayerWidth, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 30.0), in: self.view)
         }
     }
 }
@@ -80,7 +73,7 @@ extension DemoViewController: UITableViewDelegate {}
 extension DemoViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let videoCell = videoCell, let videoView = videoCell.mainPlayerView {
-            visiblePlayer?.viewDidScroll(mainPlayerView: videoView)
+            visiblePlayer?.viewDidScroll(mainPlayerView: videoView, scrollView: scrollView)
             videoView.viewDidScroll(scrollView: tableView)
         }
     }
