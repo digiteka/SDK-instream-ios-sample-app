@@ -18,8 +18,8 @@ class SettingViewController: UIViewController {
     }
     @IBOutlet private weak var autoplayText: UITextField! {
         didSet {
-            autoplayText.keyboardType = .decimalPad
-            autoplayText.returnKeyType = .done
+            autoplayText.keyboardType = .numbersAndPunctuation
+            autoplayText.delegate = self
         }
     }
     @IBOutlet private weak var visiblePlayerLabel: UILabel! {
@@ -46,8 +46,8 @@ class SettingViewController: UIViewController {
     }
     @IBOutlet private weak var widthText: UITextField! {
         didSet {
-            widthText.keyboardType = .decimalPad
-            widthText.returnKeyType = .done
+            widthText.keyboardType = .numbersAndPunctuation
+            widthText.delegate = self
         }
     }
     @IBOutlet private weak var ratioLabel: UILabel! {
@@ -57,8 +57,8 @@ class SettingViewController: UIViewController {
     }
     @IBOutlet private weak var ratioText: UITextField! {
         didSet {
-            ratioText.keyboardType = .decimalPad
-            ratioText.returnKeyType = .done
+            ratioText.keyboardType = .numbersAndPunctuation
+            ratioText.delegate = self
         }
     }
     @IBOutlet private weak var generateDemoViewController: UIButton!
@@ -108,6 +108,7 @@ class SettingViewController: UIViewController {
     }
 }
 
+//MARK: UIPickerViewDataSource
 extension SettingViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -118,6 +119,7 @@ extension SettingViewController: UIPickerViewDataSource {
     }
 }
 
+//MARK: UIPickerViewDelegate
 extension SettingViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return positions[row].rawValue
@@ -125,5 +127,13 @@ extension SettingViewController: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         position = positions[row]
+    }
+}
+
+//MARK: UITextFieldDelegate
+extension SettingViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
