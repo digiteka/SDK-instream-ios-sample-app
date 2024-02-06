@@ -13,10 +13,15 @@ import SwiftUI
 class SettingViewController: UIViewController {
     @IBOutlet private weak var autoplayLabel: UILabel! {
         didSet {
-            autoplayLabel.text = "playMode (default 0) :\n- 0 : user click\n- 1 : auto\n- 2 : scroll 50%"
+            autoplayLabel.text = "PlayMode (default 0) :\n- 0 : user click\n- 1 : auto\n- 2 : scroll 50%"
         }
     }
-    @IBOutlet private weak var autoplayText: UITextField!
+    @IBOutlet private weak var autoplayText: UITextField! {
+        didSet {
+            autoplayText.keyboardType = .decimalPad
+            autoplayText.returnKeyType = .done
+        }
+    }
     @IBOutlet private weak var visiblePlayerLabel: UILabel! {
         didSet {
             visiblePlayerLabel.text = "Visible player ?"
@@ -25,7 +30,7 @@ class SettingViewController: UIViewController {
     @IBOutlet private weak var visiblePlayerSwitch: UISwitch!
     @IBOutlet private weak var visiblePlayerPositionLabel: UILabel! {
         didSet {
-            visiblePlayerPositionLabel.text = "Visible player position"
+            visiblePlayerPositionLabel.text = "Visible player position :"
         }
     }
     @IBOutlet private weak var positionPicker: UIPickerView! {
@@ -36,10 +41,26 @@ class SettingViewController: UIViewController {
     }
     @IBOutlet private weak var widthLabel: UILabel! {
         didSet {
-            widthLabel.text = "Visible player width :"
+            widthLabel.text = "Visible player width\n(default 0.5 = 50%) :"
         }
     }
-    @IBOutlet private weak var widthSwitch: UISwitch!
+    @IBOutlet private weak var widthText: UITextField! {
+        didSet {
+            widthText.keyboardType = .decimalPad
+            widthText.returnKeyType = .done
+        }
+    }
+    @IBOutlet private weak var ratioLabel: UILabel! {
+        didSet {
+            ratioLabel.text = "Visible player ratio\n(default 1.77 = 16:9) :"
+        }
+    }
+    @IBOutlet private weak var ratioText: UITextField! {
+        didSet {
+            ratioText.keyboardType = .decimalPad
+            ratioText.returnKeyType = .done
+        }
+    }
     @IBOutlet private weak var generateDemoViewController: UIButton!
     
     private var positions: [VisiblePlayerPosition] = VisiblePlayerPosition.allCases
@@ -61,13 +82,27 @@ class SettingViewController: UIViewController {
         }
     }
     
+    private func getPlayerWidth() -> WidthProportion {
+        guard let text = widthText.text, let widthFloat = Float(text) else {
+            return .w_05
+        }
+        return .custom(width: CGFloat(widthFloat))
+    }
+    
+    private func getPlayerRatio() -> Ratio {
+        guard let text = ratioText.text, let ratioFloat = Float(text) else {
+            return .wh_16_9
+        }
+        return .custom(ratioW_H: ratioFloat)
+    }
+    
     @IBAction func openDemoViewController(_ sender: UIButton) {
-        let vc = DemoViewController(playMode: getPlayMode(), hasVisiblePlayer: visiblePlayerSwitch.isOn, visiblePlayerPosition: position, visiblePlayerWidth: widthSwitch.isOn)
+        let vc = DemoViewController(playMode: getPlayMode(), hasVisiblePlayer: visiblePlayerSwitch.isOn, visiblePlayerPosition: position, visiblePlayerWidth: getPlayerWidth(), ratio: getPlayerRatio())
          navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func openSwiftUIDemoViewController(_ sender: UIButton) {
-        let swiftUIView = DemoMainView(playMode: getPlayMode(), playerPosition: position, hasVisiblePlayer: visiblePlayerSwitch.isOn, visiblePlayerPosition: position, visiblePlayerWidth: widthSwitch.isOn)
+        let swiftUIView = DemoMainView(playMode: getPlayMode(), playerPosition: position, hasVisiblePlayer: visiblePlayerSwitch.isOn, visiblePlayerPosition: position, visiblePlayerWidth: getPlayerWidth(), ratio: getPlayerRatio())
         let hostingController = UIHostingController(rootView: swiftUIView)
         self.navigationController?.pushViewController(hostingController, animated: true)
     }
