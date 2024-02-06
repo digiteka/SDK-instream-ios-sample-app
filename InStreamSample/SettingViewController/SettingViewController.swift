@@ -11,20 +11,35 @@ import InStreamSDK
 import SwiftUI
 
 class SettingViewController: UIViewController {
-    @IBOutlet private weak var autoplayLabel: UILabel!
+    @IBOutlet private weak var autoplayLabel: UILabel! {
+        didSet {
+            autoplayLabel.text = "playMode (default 0) :\n- 0 : user click\n- 1 : auto\n- 2 : scroll 50%"
+        }
+    }
     @IBOutlet private weak var autoplayText: UITextField!
-    @IBOutlet private weak var visiblePlayerLabel: UILabel!
+    @IBOutlet private weak var visiblePlayerLabel: UILabel! {
+        didSet {
+            visiblePlayerLabel.text = "Visible player ?"
+        }
+    }
     @IBOutlet private weak var visiblePlayerSwitch: UISwitch!
-    @IBOutlet private weak var visiblePlayerPositionLabel: UILabel!
+    @IBOutlet private weak var visiblePlayerPositionLabel: UILabel! {
+        didSet {
+            visiblePlayerPositionLabel.text = "Visible player position"
+        }
+    }
     @IBOutlet private weak var positionPicker: UIPickerView! {
         didSet {
             positionPicker.dataSource = self
             positionPicker.delegate = self
         }
     }
-    @IBOutlet private weak var widthLabel: UILabel!
+    @IBOutlet private weak var widthLabel: UILabel! {
+        didSet {
+            widthLabel.text = "Visible player width :"
+        }
+    }
     @IBOutlet private weak var widthSwitch: UISwitch!
-    @IBOutlet private weak var percent50Label: UILabel!
     @IBOutlet private weak var generateDemoViewController: UIButton!
     
     private var positions = ["top_start", "top_end", "bottom_start", "bottom_end"]
@@ -33,11 +48,6 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        autoplayLabel.text = "playMode (default 0) :\n- 0 : click utilisateur\n- 1 : automatique\n- 2 : scroll à 50%"
-        visiblePlayerLabel.text = "visible player ?"
-        visiblePlayerPositionLabel.text = "position du visible player"
-        widthLabel.text = "largeur du visible player :   33%"
-        percent50Label.text = "50%"
     }
     
     private func getPlayMode() -> PlayMode {

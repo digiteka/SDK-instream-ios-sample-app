@@ -26,7 +26,7 @@ struct DemoMainView: View {
         let visiblePlayerConfig = DTKISVisiblePlayerConfig(playerPosition: playerPosition, widthPercent: visiblePlayerWidth ? 0.5 : 0.33, ratio: "16:9", horizontalMargin: 20.0, verticalMargin: 20.0)
         
         InStreamScrollVStack(config: config, visiblePlayerConfig: hasVisiblePlayer ? visiblePlayerConfig : nil, data: MockData.getMockedData(size: 40), playerInsertPosition: 10) { element in
-            Text("Ligne \(element.index), 1\nLigne \(element.index), 2\nLigne \(element.index), 3\nLigne \(element.index), 4")
+            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.leading)
         }

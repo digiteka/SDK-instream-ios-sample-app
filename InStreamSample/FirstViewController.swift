@@ -14,7 +14,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Application de démonstration Digiteka"
+        self.navigationItem.title = "Digiteka InStream Demo App"
     }
     
     @IBAction func openClickToPlayVC(_ sender: UIButton) {
