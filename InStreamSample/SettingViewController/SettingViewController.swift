@@ -42,7 +42,7 @@ class SettingViewController: UIViewController {
     @IBOutlet private weak var widthSwitch: UISwitch!
     @IBOutlet private weak var generateDemoViewController: UIButton!
     
-    private var positions = ["top_start", "top_end", "bottom_start", "bottom_end"]
+    private var positions: [VisiblePlayerPosition] = VisiblePlayerPosition.allCases
     private var position: VisiblePlayerPosition = .TOP_START
     
     override func viewDidLoad() {
@@ -85,19 +85,10 @@ extension SettingViewController: UIPickerViewDataSource {
 
 extension SettingViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return positions[row]
+        return positions[row].rawValue
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch row {
-        case 0:
-            position = .TOP_START
-        case 1:
-            position = .TOP_END
-        case 3:
-            position = .BOTTOM_END
-        default:
-            position = .BOTTOM_START
-        }
+        position = positions[row]
     }
 }
