@@ -11,6 +11,10 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
+    static func loadFromNib() -> FirstViewController {
+        FirstViewController(nibName: "FirstViewController", bundle: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,5 +40,4 @@ class FirstViewController: UIViewController {
         let vc = SettingViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
-    
 }
