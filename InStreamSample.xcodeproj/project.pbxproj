@@ -134,13 +134,13 @@
 		4CCA7C412B456E77008CA04C /* InStreamSample */ = {
 			isa = PBXGroup;
 			children = (
-				4CC0C8142B729144000F32CB /* FirstViewController */,
-				4C4BFD362B4D741F00A1797A /* SwiftUI */,
-				4C4BFD332B4D663100A1797A /* SettingViewController */,
-				4C8E1A322B45AE580047A877 /* DemoViewController */,
 				4CCA7C422B456E77008CA04C /* AppDelegate.swift */,
 				4CCA7C442B456E77008CA04C /* SceneDelegate.swift */,
 				4C4BFD442B4EC85C00A1797A /* Constants.swift */,
+				4CC0C8142B729144000F32CB /* FirstViewController */,
+				4C4BFD332B4D663100A1797A /* SettingViewController */,
+				4C8E1A322B45AE580047A877 /* DemoViewController */,
+				4C4BFD362B4D741F00A1797A /* SwiftUI */,
 				4CCA7C4B2B456E78008CA04C /* Assets.xcassets */,
 				4CCA7C502B456E78008CA04C /* Info.plist */,
 			);
