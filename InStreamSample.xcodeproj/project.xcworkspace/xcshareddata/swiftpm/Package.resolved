@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "digiteka.instream.xcframework",
+      "kind" : "remoteSourceControl",
+      "location" : "git@bitbucket.org:beappers/digiteka.instream.xcframework.git",
+      "state" : {
+        "revision" : "7f4f6dddeddb239edd1dffa8c47ba2ed6460e693",
+        "version" : "1.0.0-5"
+      }
+    }
+  ],
+  "version" : 2
+}
