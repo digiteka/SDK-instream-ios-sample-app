@@ -25,20 +25,24 @@ class DemoViewController: UIViewController {
     private var visiblePlayerPosition: VisiblePlayerPosition!
     private var visiblePlayerWidth: WidthProportion!
     private var ratio: Ratio!
+    private var horizontalMargin: CGFloat = 20.0
+    private var verticalMargin: CGFloat = 30.0
     
-    convenience init(playMode: PlayMode, hasVisiblePlayer: Bool, visiblePlayerPosition: VisiblePlayerPosition, visiblePlayerWidth: WidthProportion, ratio: Ratio) {
+    convenience init(playMode: PlayMode, hasVisiblePlayer: Bool, visiblePlayerPosition: VisiblePlayerPosition, visiblePlayerWidth: WidthProportion, ratio: Ratio, horizontalMargin: CGFloat? = nil, verticalMargin: CGFloat? = nil) {
         self.init()
         self.playMode = playMode
         self.hasVisiblePlayer = hasVisiblePlayer
         self.visiblePlayerPosition = visiblePlayerPosition
         self.visiblePlayerWidth = visiblePlayerWidth
         self.ratio = ratio
+        self.horizontalMargin = horizontalMargin ?? self.horizontalMargin
+        self.verticalMargin = verticalMargin ?? self.verticalMargin
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         if hasVisiblePlayer {
-            visiblePlayer = InStream.shared.initVisiblePlayerWith(config: DTKISVisiblePlayerConfig(playerPosition: visiblePlayerPosition, widthPercent: visiblePlayerWidth, ratio: ratio, horizontalMargin: 20.0, verticalMargin: 30.0), in: self.view)
+            visiblePlayer = InStream.shared.initVisiblePlayerWith(config: DTKISVisiblePlayerConfig(playerPosition: visiblePlayerPosition, widthPercent: visiblePlayerWidth, ratio: ratio, horizontalMargin: horizontalMargin, verticalMargin: verticalMargin), in: self.view)
         }
     }
 }

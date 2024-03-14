@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21F6B11D2B7E2220004A49A5 /* InStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 21F6B11C2B7E2220004A49A5 /* InStreamSDK */; };
+		218BDDC02BA30A5C00FB6477 /* InStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 218BDDBF2BA30A5C00FB6477 /* InStreamSDK */; };
+		218BDDC32BA33CF400FB6477 /* InStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 218BDDC22BA33CF400FB6477 /* InStreamSDK */; };
 		4C347FEF2B45BACC00CE8299 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C347FEE2B45BACC00CE8299 /* VideoTableViewCell.swift */; };
 		4C347FF32B46ABD900CE8299 /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C347FF22B46ABD900CE8299 /* VideoTableViewCell.xib */; };
 		4C4BFD322B4D63CC00A1797A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BFD312B4D63CC00A1797A /* FirstViewController.swift */; };
@@ -50,7 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21F6B11D2B7E2220004A49A5 /* InStreamSDK in Frameworks */,
+				218BDDC32BA33CF400FB6477 /* InStreamSDK in Frameworks */,
+				218BDDC02BA30A5C00FB6477 /* InStreamSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +155,8 @@
 			);
 			name = InStreamSample;
 			packageProductDependencies = (
-				21F6B11C2B7E2220004A49A5 /* InStreamSDK */,
+				218BDDBF2BA30A5C00FB6477 /* InStreamSDK */,
+				218BDDC22BA33CF400FB6477 /* InStreamSDK */,
 			);
 			productName = InStreamSample;
 			productReference = 4CCA7C3F2B456E77008CA04C /* InStreamSample.app */;
@@ -184,7 +187,7 @@
 			);
 			mainGroup = 4CCA7C362B456E77008CA04C;
 			packageReferences = (
-				21F6B11B2B7E2220004A49A5 /* XCRemoteSwiftPackageReference "digiteka.instream.xcframework" */,
+				218BDDC12BA33CF400FB6477 /* XCRemoteSwiftPackageReference "digiteka.instream.xcframework" */,
 			);
 			productRefGroup = 4CCA7C402B456E77008CA04C /* Products */;
 			projectDirPath = "";
@@ -434,20 +437,24 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		21F6B11B2B7E2220004A49A5 /* XCRemoteSwiftPackageReference "digiteka.instream.xcframework" */ = {
+		218BDDC12BA33CF400FB6477 /* XCRemoteSwiftPackageReference "digiteka.instream.xcframework" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@bitbucket.org:beappers/digiteka.instream.xcframework.git";
 			requirement = {
 				kind = exactVersion;
-				version = "1.0.0-5";
+				version = "1.0.0-6";
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		21F6B11C2B7E2220004A49A5 /* InStreamSDK */ = {
+		218BDDBF2BA30A5C00FB6477 /* InStreamSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 21F6B11B2B7E2220004A49A5 /* XCRemoteSwiftPackageReference "digiteka.instream.xcframework" */;
+			productName = InStreamSDK;
+		};
+		218BDDC22BA33CF400FB6477 /* InStreamSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 218BDDC12BA33CF400FB6477 /* XCRemoteSwiftPackageReference "digiteka.instream.xcframework" */;
 			productName = InStreamSDK;
 		};
 /* End XCSwiftPackageProductDependency section */

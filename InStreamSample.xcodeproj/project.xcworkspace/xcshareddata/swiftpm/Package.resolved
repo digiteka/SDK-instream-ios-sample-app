@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@bitbucket.org:beappers/digiteka.instream.xcframework.git",
       "state" : {
-        "revision" : "7f4f6dddeddb239edd1dffa8c47ba2ed6460e693",
-        "version" : "1.0.0-5"
+        "revision" : "1e77be2aa0eb87de4ece5e66c50a7e2b1b73c147",
+        "version" : "1.0.0-6"
       }
     }
   ],
