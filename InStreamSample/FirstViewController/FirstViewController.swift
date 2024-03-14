@@ -10,6 +10,32 @@ import InStreamSDK
 import UIKit
 
 class FirstViewController: UIViewController {
+    @IBOutlet private weak var logoImageView: UIImageView! {
+        didSet {
+            logoImageView.layer.cornerRadius = 10
+            logoImageView.layer.masksToBounds = true
+        }
+    }
+    @IBOutlet private weak var clickToPlayButton: UIButton! {
+        didSet {
+            clickToPlayButton.layer.cornerRadius = 10
+        }
+    }
+    @IBOutlet private weak var scrollToPlayButton: UIButton! {
+        didSet {
+            scrollToPlayButton.layer.cornerRadius = 10
+        }
+    }
+    @IBOutlet private weak var autoPlayButton: UIButton! {
+        didSet {
+            autoPlayButton.layer.cornerRadius = 10
+        }
+    }
+    @IBOutlet private weak var customButton: UIButton! {
+        didSet {
+            customButton.layer.cornerRadius = 10
+        }
+    }
     
     static func loadFromNib() -> FirstViewController {
         FirstViewController(nibName: "FirstViewController", bundle: nil)

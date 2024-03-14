@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirstViewController" customModule="InStreamSample" customModuleProvider="target">
             <connections>
+                <outlet property="autoPlayButton" destination="qHy-RG-UHX" id="PgD-aB-4eb"/>
+                <outlet property="clickToPlayButton" destination="ZyB-oR-tvP" id="QLB-7C-04F"/>
+                <outlet property="customButton" destination="enX-6l-Nm9" id="BHe-dq-bSi"/>
+                <outlet property="logoImageView" destination="TFS-6V-G4Y" id="7Ag-7V-J6j"/>
+                <outlet property="scrollToPlayButton" destination="m6i-Sj-uzD" id="hcm-kP-zSr"/>
                 <outlet property="view" destination="zOL-rs-Mom" id="fhX-3G-tgf"/>
             </connections>
         </placeholder>
@@ -20,36 +26,51 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="digitekaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="TFS-6V-G4Y">
-                    <rect key="frame" x="182" y="89" width="29" height="29"/>
+                    <rect key="frame" x="147.33333333333334" y="89" width="98.333333333333343" height="98.333333333333314"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="TFS-6V-G4Y" secondAttribute="height" id="Sg6-U1-Dwd"/>
+                    </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZyB-oR-tvP">
-                    <rect key="frame" x="142.66666666666666" y="188" width="108" height="35"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="clickToPlay"/>
+                    <rect key="frame" x="136.66666666666666" y="257.33333333333331" width="119.99999999999997" height="34.333333333333314"/>
+                    <color key="backgroundColor" name="AccentColor"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Click To Play"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Click To Play"/>
                     <connections>
                         <action selector="openClickToPlayVC:" destination="-1" eventType="touchDown" id="sjD-AU-p9N"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6i-Sj-uzD">
-                    <rect key="frame" x="136.66666666666666" y="263" width="119.99999999999997" height="35"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="scroll to play"/>
+                    <rect key="frame" x="135.66666666666666" y="331.66666666666669" width="121.99999999999997" height="34.333333333333314"/>
+                    <color key="backgroundColor" name="AccentColor"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Scroll to play"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Scroll to play"/>
                     <connections>
                         <action selector="openScrollToPlayVC:" destination="-1" eventType="touchDown" id="WW5-yH-cOB"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHy-RG-UHX">
-                    <rect key="frame" x="149.66666666666666" y="338" width="94" height="35"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="auto play"/>
+                    <rect key="frame" x="149" y="406" width="95" height="34.333333333333314"/>
+                    <color key="backgroundColor" name="AccentColor"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Auto play"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Auto play"/>
                     <connections>
                         <action selector="openAutoPlayVC:" destination="-1" eventType="touchDown" id="VGi-5t-7DP"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enX-6l-Nm9">
-                    <rect key="frame" x="156" y="463" width="81" height="35"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="custom"/>
+                    <rect key="frame" x="155" y="683.66666666666663" width="83.333333333333314" height="34.333333333333371"/>
+                    <color key="backgroundColor" name="AccentColor"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Custom"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Custom"/>
                     <connections>
                         <action selector="goToCustomVC:" destination="-1" eventType="touchDown" id="vdj-KY-hIQ"/>
                     </connections>
@@ -59,11 +80,12 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="ZyB-oR-tvP" firstAttribute="centerX" secondItem="zOL-rs-Mom" secondAttribute="centerX" id="88T-bP-hNR"/>
-                <constraint firstItem="enX-6l-Nm9" firstAttribute="top" secondItem="qHy-RG-UHX" secondAttribute="bottom" constant="90" id="9Hk-2D-gq3"/>
                 <constraint firstItem="m6i-Sj-uzD" firstAttribute="top" secondItem="ZyB-oR-tvP" secondAttribute="bottom" constant="40" id="JEb-gz-1qA"/>
                 <constraint firstItem="enX-6l-Nm9" firstAttribute="centerX" secondItem="zOL-rs-Mom" secondAttribute="centerX" id="RyD-Eg-2J1"/>
+                <constraint firstItem="TFS-6V-G4Y" firstAttribute="width" secondItem="0Ms-J6-HoI" secondAttribute="width" multiplier="0.25" id="W40-zM-2HN"/>
                 <constraint firstItem="m6i-Sj-uzD" firstAttribute="centerX" secondItem="zOL-rs-Mom" secondAttribute="centerX" id="ZL6-7h-x0q"/>
                 <constraint firstItem="TFS-6V-G4Y" firstAttribute="centerX" secondItem="zOL-rs-Mom" secondAttribute="centerX" id="c8v-ai-Jbm"/>
+                <constraint firstItem="0Ms-J6-HoI" firstAttribute="bottom" secondItem="enX-6l-Nm9" secondAttribute="bottom" constant="100" id="h4W-NF-0gJ"/>
                 <constraint firstItem="ZyB-oR-tvP" firstAttribute="top" secondItem="TFS-6V-G4Y" secondAttribute="bottom" constant="70" id="n87-Fc-hmW"/>
                 <constraint firstItem="TFS-6V-G4Y" firstAttribute="top" secondItem="0Ms-J6-HoI" secondAttribute="top" constant="30" id="pXO-nd-ekS"/>
                 <constraint firstItem="qHy-RG-UHX" firstAttribute="top" secondItem="m6i-Sj-uzD" secondAttribute="bottom" constant="40" id="pat-ES-3X1"/>
@@ -73,7 +95,10 @@
         </view>
     </objects>
     <resources>
-        <image name="digitekaLogo" width="29" height="29"/>
+        <image name="digitekaLogo" width="60" height="60"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
