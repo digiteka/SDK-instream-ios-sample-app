@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/digiteka/SDK-instream-ios-build",
       "state" : {
-        "revision" : "37f8d2efece1f690a825826e37f9f87ac3ff9d8b",
-        "version" : "1.0.0"
+        "revision" : "b0c6b5713db7e918b7f7c0275555527fd79c73c5",
+        "version" : "1.0.1"
       }
     }
   ],
