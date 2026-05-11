@@ -9,7 +9,7 @@ Ajouter la dépendance à votre projet avec l'une de ces solutions :
 
 ## Swift Package Manager
 
-Vous pouvez intégrer `InstreamSDK` en tant que package Swift en ajoutant l'URL suivante du repository public dans Xcode :
+Vous pouvez intégrer `InStreamSDK` en tant que package Swift en ajoutant l'URL suivante du repository public dans Xcode :
 
 `https://github.com/digiteka/SDK-instream-ios-build`
 
@@ -20,9 +20,9 @@ Vous pouvez intégrer `InstreamSDK` en tant que package Swift en ajoutant l'URL 
 > Cocoapods sera read-only à partir du 2 Décembre 2026.
 > Merci d'utiliser la nouvelle version recommandée (SPM).
 
-Vous pouvez utiliser [CocoaPods](https://cocoapods.org/) pour installer `InstreamSDK` en ajoutant ce code à votre fichier `Podfile` :
+Vous pouvez utiliser [CocoaPods](https://cocoapods.org/) pour installer `InStreamSDK` en ajoutant ce code à votre fichier `Podfile` :
 
-`pod 'InstreamSDK', '~> 1.0.0'`
+`pod 'InstreamSDK', '~> 1.0.1'`
 
 # Utilisation
 
