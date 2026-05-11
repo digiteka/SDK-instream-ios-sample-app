@@ -1,14 +1,15 @@
 {
+  "originHash" : "8c9b61c176a61ad3688d7a16f57ae3d812e58060eb4d95b09bd7699a5908da78",
   "pins" : [
     {
-      "identity" : "digiteka.instream.xcframework",
+      "identity" : "sdk-instream-ios-build",
       "kind" : "remoteSourceControl",
-      "location" : "git@bitbucket.org:beappers/digiteka.instream.xcframework.git",
+      "location" : "https://github.com/digiteka/SDK-instream-ios-build",
       "state" : {
-        "revision" : "1e77be2aa0eb87de4ece5e66c50a7e2b1b73c147",
-        "version" : "1.0.0-6"
+        "revision" : "37f8d2efece1f690a825826e37f9f87ac3ff9d8b",
+        "version" : "1.0.0"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
